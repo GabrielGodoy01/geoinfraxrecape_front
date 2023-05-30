@@ -1,61 +1,15 @@
 {
-    "stateNameSchema": "{schema, select, APPROVED{Approved} PENDING{Pending} REJECTED{Rejected} other{Other}}",
-
-
-    "homePageTitle": "Welcome to Clean Flutter Template",
-    "homePageSubtitle": "Explore the features of the template:",
-
-    "createPageTitle": "Create a new user",
-    "registerTitle": "Register",
 
     "fieldName": "Name",
     "fieldEmail": "Email",
-    "fieldId": "ID",
-    "fieldHintName": "Gabriel de Godoy Braz",
-    "fieldHintEmail": "example@example.com",
-    "fieldHintId": "Identification number",
+    "fieldPassword": "Password",
 
     "fieldRequired": "Field is required",
     "fieldMinLength": "Field must be at least 6 characters long",
     "fieldInvalidEmail": "Field must be a valid email address",
     "fieldInvalidId": "Field must be a valid integer",
 
-    "successCreateUser": "User {successCreateUser} created successfully",
-    "@successCreateUser" : {
-        "placeholders": {
-            "placeholders": {
-                "successCreateUser": {}
-            }
-        }
-    },
 
-    "getPageTitle": "Search for a user",
-    "searchTitle": "Search",
-
-    "updatePageTitle": "Update an user",
-    "updateTitle": "Update",
-
-    "deletePageTitle": "Delete an user",
-    "deleteTitle": "Delete",
-
-
-    "successUpdateUser": "User {successUpdateUser} updated successfully",
-    "@successUpdateUser" : {
-        "placeholders": {
-            "placeholders": {
-                "successUpdateUser": {}
-            }
-        }
-    },
-
-    "successDeleteUser": "User {successDeleteUser} deleted successfully",
-    "@successDeleteUser" : {
-        "placeholders": {
-            "placeholders": {
-                "successDeleteUser": {}
-            }
-        }
-    },
 
     "entityErrorMessage": "Field {entityErrorMessage} is not valid",
     "@entityErrorMessage" : {
@@ -87,6 +41,7 @@
     },
 
     "authErrorsSchema": "{schema, select, codeDeliveryFailure{Failed to send code to email, please try again.} codeMismatch{Code provided is wrong, please try again.} invalidParameter{Some field filled in incorrectly.} usernameExists{There is already an account with this email.} notAuthorized{Unconfirmed email, confirm it.} userNotConfirmed{Unconfirmed email, confirm it.} signedOut{Incorrect email or password.} limitExceeded{Too many attempts in a row, try again later.} invalidParameter{Email probably already confirmed.} tooManyFailedAttempts{Looks like you tried the code wrong too many times, get in touch.} userNotFound{We couldn't find this registered email.} internalError{We are experiencing internal issues, please try again later.} codeMismatch{Code provided is wrong, please try again.} other{An error occurred while confirming email.}}",
+    
     "requiredFieldAlert": "Required field.",
     "invalidEmailAlert": "Invalid email.",
     "invalidPasswordAlert": "Invalid password."

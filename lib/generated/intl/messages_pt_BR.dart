@@ -47,41 +47,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m3(placeholders, message) => "${message}";
 
-  static String m4(schema) => "${Intl.select(schema, {
-            'APPROVED': 'Aprovado',
-            'PENDING': 'Pendente',
-            'REJECTED': 'Rejeitado',
-            'other': 'Other',
-          })}";
-
-  static String m5(placeholders, successCreateUser) =>
-      "Usuário ${successCreateUser} criado com sucesso";
-
-  static String m6(placeholders, successDeleteUser) =>
-      "Usuário ${successDeleteUser} deletado com sucesso";
-
-  static String m7(placeholders, successUpdateUser) =>
-      "Usuário ${successUpdateUser} updated com sucesso";
-
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "authErrorsSchema": m0,
-        "createPageTitle":
-            MessageLookupByLibrary.simpleMessage("Crie um novo usuário"),
-        "deletePageTitle":
-            MessageLookupByLibrary.simpleMessage("Delete um usuário"),
-        "deleteTitle": MessageLookupByLibrary.simpleMessage("Deletar"),
         "emptyListErrorMessage": MessageLookupByLibrary.simpleMessage(
             "Lista vazia, itens não encontrados para essa requisição"),
         "entityErrorMessage": m1,
         "fieldEmail": MessageLookupByLibrary.simpleMessage("Email"),
-        "fieldHintEmail":
-            MessageLookupByLibrary.simpleMessage("exemplo@exemplo.com"),
-        "fieldHintId": MessageLookupByLibrary.simpleMessage(
-            "Número de identificação do usuário"),
-        "fieldHintName":
-            MessageLookupByLibrary.simpleMessage("Gabriel de Godoy Braz"),
-        "fieldId": MessageLookupByLibrary.simpleMessage("ID"),
         "fieldInvalidEmail": MessageLookupByLibrary.simpleMessage(
             "O campo deve ser um endereço de e-mail válido"),
         "fieldInvalidId": MessageLookupByLibrary.simpleMessage(
@@ -89,30 +61,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "fieldMinLength": MessageLookupByLibrary.simpleMessage(
             "O campo deve ter pelo menos 6 caracteres"),
         "fieldName": MessageLookupByLibrary.simpleMessage("Nome"),
+        "fieldPassword": MessageLookupByLibrary.simpleMessage("Senha"),
         "fieldRequired":
             MessageLookupByLibrary.simpleMessage("Campo é obrigatório"),
-        "getPageTitle":
-            MessageLookupByLibrary.simpleMessage("Procure um usuário"),
-        "homePageSubtitle": MessageLookupByLibrary.simpleMessage(
-            "Explore as funcionalidades do template:"),
-        "homePageTitle": MessageLookupByLibrary.simpleMessage(
-            "Bem-vindo ao Clean Flutter Template"),
         "invalidEmailAlert":
             MessageLookupByLibrary.simpleMessage("E-mail inválido."),
         "invalidPasswordAlert":
             MessageLookupByLibrary.simpleMessage("Senha inválida."),
         "noItemsFoundErrorMessage": m2,
-        "registerTitle": MessageLookupByLibrary.simpleMessage("Cadastrar"),
         "requestErrorMessage": m3,
         "requiredFieldAlert":
-            MessageLookupByLibrary.simpleMessage("Campo obrigatório."),
-        "searchTitle": MessageLookupByLibrary.simpleMessage("Procurar"),
-        "stateNameSchema": m4,
-        "successCreateUser": m5,
-        "successDeleteUser": m6,
-        "successUpdateUser": m7,
-        "updatePageTitle":
-            MessageLookupByLibrary.simpleMessage("Dê update em um usuário"),
-        "updateTitle": MessageLookupByLibrary.simpleMessage("Update")
+            MessageLookupByLibrary.simpleMessage("Campo obrigatório.")
       };
 }

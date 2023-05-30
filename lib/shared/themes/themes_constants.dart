@@ -8,15 +8,15 @@ ThemeData lightTheme = ThemeData(
         .copyWith(secondary: Colors.blueAccent, brightness: Brightness.light),
     primaryColor: AppColors.primary,
     floatingActionButtonTheme:
-        FloatingActionButtonThemeData(backgroundColor: AppColors.accent),
+        FloatingActionButtonThemeData(backgroundColor: AppColors.primary),
     textTheme: TextTheme(
-      displayLarge: AppTextStyles.headline1,
-      displayMedium: AppTextStyles.headline2,
-      displaySmall: AppTextStyles.headline3,
-      bodyLarge: AppTextStyles.bodyText1,
-      bodyMedium: AppTextStyles.bodyText2,
-      titleMedium: AppTextStyles.subtitle1,
-      titleSmall: AppTextStyles.subtitle2,
+      displayLarge: AppTextStyles.displayLarge,
+      displayMedium: AppTextStyles.displayMedium,
+      displaySmall: AppTextStyles.displaySmall,
+      bodyLarge: AppTextStyles.bodyLarge,
+      bodyMedium: AppTextStyles.bodyMedium,
+      titleMedium: AppTextStyles.titleMedium,
+      titleSmall: AppTextStyles.titleSmall,
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
@@ -26,7 +26,7 @@ ThemeData lightTheme = ThemeData(
                 RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0))),
             backgroundColor:
-                MaterialStateProperty.all<Color>(AppColors.accent))),
+                MaterialStateProperty.all<Color>(AppColors.primary))),
     inputDecorationTheme: InputDecorationTheme(
         border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20.0),
@@ -42,13 +42,13 @@ ThemeData darkTheme = ThemeData(
     thumbColor: MaterialStateProperty.all<Color>(AppColors.white),
   ),
   textTheme: TextTheme(
-    displayLarge: AppTextStyles.headline1.copyWith(color: AppColors.white),
-    displayMedium: AppTextStyles.headline2.copyWith(color: AppColors.white),
-    displaySmall: AppTextStyles.headline3.copyWith(color: AppColors.white),
-    bodyLarge: AppTextStyles.bodyText1.copyWith(color: AppColors.white),
-    bodyMedium: AppTextStyles.bodyText2.copyWith(color: AppColors.white),
-    titleMedium: AppTextStyles.subtitle1.copyWith(color: AppColors.white),
-    titleSmall: AppTextStyles.subtitle2.copyWith(color: AppColors.white),
+    displayLarge: AppTextStyles.displayLarge.copyWith(color: AppColors.white),
+    displayMedium: AppTextStyles.displayMedium.copyWith(color: AppColors.white),
+    displaySmall: AppTextStyles.displaySmall.copyWith(color: AppColors.white),
+    bodyLarge: AppTextStyles.bodyLarge.copyWith(color: AppColors.white),
+    bodyMedium: AppTextStyles.bodyMedium.copyWith(color: AppColors.white),
+    titleMedium: AppTextStyles.titleMedium.copyWith(color: AppColors.white),
+    titleSmall: AppTextStyles.titleSmall.copyWith(color: AppColors.white),
   ),
   inputDecorationTheme: InputDecorationTheme(
       border: OutlineInputBorder(

@@ -50,62 +50,6 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `{schema, select, APPROVED{Approved} PENDING{Pending} REJECTED{Rejected} other{Other}}`
-  String stateNameSchema(Object schema) {
-    return Intl.select(
-      schema,
-      {
-        'APPROVED': 'Approved',
-        'PENDING': 'Pending',
-        'REJECTED': 'Rejected',
-        'other': 'Other',
-      },
-      name: 'stateNameSchema',
-      desc: '',
-      args: [schema],
-    );
-  }
-
-  /// `Welcome to Clean Flutter Template`
-  String get homePageTitle {
-    return Intl.message(
-      'Welcome to Clean Flutter Template',
-      name: 'homePageTitle',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Explore the features of the template:`
-  String get homePageSubtitle {
-    return Intl.message(
-      'Explore the features of the template:',
-      name: 'homePageSubtitle',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Create a new user`
-  String get createPageTitle {
-    return Intl.message(
-      'Create a new user',
-      name: 'createPageTitle',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Register`
-  String get registerTitle {
-    return Intl.message(
-      'Register',
-      name: 'registerTitle',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Name`
   String get fieldName {
     return Intl.message(
@@ -126,41 +70,11 @@ class S {
     );
   }
 
-  /// `ID`
-  String get fieldId {
+  /// `Password`
+  String get fieldPassword {
     return Intl.message(
-      'ID',
-      name: 'fieldId',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Gabriel de Godoy Braz`
-  String get fieldHintName {
-    return Intl.message(
-      'Gabriel de Godoy Braz',
-      name: 'fieldHintName',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `example@example.com`
-  String get fieldHintEmail {
-    return Intl.message(
-      'example@example.com',
-      name: 'fieldHintEmail',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Identification number`
-  String get fieldHintId {
-    return Intl.message(
-      'Identification number',
-      name: 'fieldHintId',
+      'Password',
+      name: 'fieldPassword',
       desc: '',
       args: [],
     );
@@ -203,96 +117,6 @@ class S {
       name: 'fieldInvalidId',
       desc: '',
       args: [],
-    );
-  }
-
-  /// `User {successCreateUser} created successfully`
-  String successCreateUser(Object placeholders, Object successCreateUser) {
-    return Intl.message(
-      'User $successCreateUser created successfully',
-      name: 'successCreateUser',
-      desc: '',
-      args: [placeholders, successCreateUser],
-    );
-  }
-
-  /// `Search for a user`
-  String get getPageTitle {
-    return Intl.message(
-      'Search for a user',
-      name: 'getPageTitle',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Search`
-  String get searchTitle {
-    return Intl.message(
-      'Search',
-      name: 'searchTitle',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Update an user`
-  String get updatePageTitle {
-    return Intl.message(
-      'Update an user',
-      name: 'updatePageTitle',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Update`
-  String get updateTitle {
-    return Intl.message(
-      'Update',
-      name: 'updateTitle',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Delete an user`
-  String get deletePageTitle {
-    return Intl.message(
-      'Delete an user',
-      name: 'deletePageTitle',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Delete`
-  String get deleteTitle {
-    return Intl.message(
-      'Delete',
-      name: 'deleteTitle',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `User {successUpdateUser} updated successfully`
-  String successUpdateUser(Object placeholders, Object successUpdateUser) {
-    return Intl.message(
-      'User $successUpdateUser updated successfully',
-      name: 'successUpdateUser',
-      desc: '',
-      args: [placeholders, successUpdateUser],
-    );
-  }
-
-  /// `User {successDeleteUser} deleted successfully`
-  String successDeleteUser(Object placeholders, Object successDeleteUser) {
-    return Intl.message(
-      'User $successDeleteUser deleted successfully',
-      name: 'successDeleteUser',
-      desc: '',
-      args: [placeholders, successDeleteUser],
     );
   }
 
