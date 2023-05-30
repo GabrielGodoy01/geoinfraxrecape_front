@@ -25,11 +25,10 @@ import 'login_controller_test.mocks.dart';
 void main() {
   late LoginController controller;
   ILoginUserUsecase usecase = MockILoginUserUsecase();
-  IAuthStorage storage = MockIAuthStorage();
   IGetUserAttributesUsecase getUserAttributes = MockIGetUserAttributesUsecase();
 
   setUp(() async {
-    controller = LoginController(usecase, storage, getUserAttributes);
+    controller = LoginController(usecase, getUserAttributes);
     await S.load(const Locale.fromSubtags(languageCode: 'en'));
   });
 

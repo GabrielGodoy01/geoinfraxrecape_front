@@ -80,6 +80,16 @@ class S {
     );
   }
 
+  /// `Enter`
+  String get enterTitle {
+    return Intl.message(
+      'Enter',
+      name: 'enterTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Field is required`
   String get fieldRequired {
     return Intl.message(

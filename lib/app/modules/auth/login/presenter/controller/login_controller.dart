@@ -1,5 +1,4 @@
 import 'package:mobx/mobx.dart';
-import '../../../../../../shared/domain/storage/auth_storage_interface.dart';
 import '../../../../../../shared/domain/usecases/get_user_attributes_usecase.dart';
 import '../../../../../../shared/domain/usecases/login_user_usecase.dart';
 import '../../../../../../shared/helpers/utils/validation_helper.dart';
@@ -11,10 +10,10 @@ class LoginController = LoginControllerBase with _$LoginController;
 
 abstract class LoginControllerBase with Store {
   final ILoginUserUsecase _login;
-  final IAuthStorage storage;
+  // final IAuthStorage storage;
   final IGetUserAttributesUsecase _getUserAttributes;
 
-  LoginControllerBase(this._login, this.storage, this._getUserAttributes);
+  LoginControllerBase(this._login, this._getUserAttributes);
 
   @observable
   LoginState state = LoginInitialState();
@@ -23,7 +22,7 @@ abstract class LoginControllerBase with Store {
   void changeState(LoginState value) => state = value;
 
   @observable
-  bool isPasswordVisible = false;
+  bool isPasswordVisible = true;
 
   @action
   void changePasswordState() => isPasswordVisible = !isPasswordVisible;
@@ -69,16 +68,16 @@ abstract class LoginControllerBase with Store {
       return changeState(LoginSuccessState(authSession: authSession));
     });
     if (state is LoginSuccessState) {
-      var successState = state as LoginSuccessState;
-      await storage.saveAccessToken(successState
-          .authSession.userPoolTokensResult.value.accessToken
-          .toString());
-      await storage.saveRefreshToken(successState
-          .authSession.userPoolTokensResult.value.refreshToken
-          .toString());
-      await storage.saveIdToken(successState
-          .authSession.userPoolTokensResult.value.idToken
-          .toString());
+      // var successState = state as LoginSuccessState;
+      // await storage.saveAccessToken(successState
+      //     .authSession.userPoolTokensResult.value.accessToken
+      //     .toString());
+      // await storage.saveRefreshToken(successState
+      //     .authSession.userPoolTokensResult.value.refreshToken
+      //     .toString());
+      // await storage.saveIdToken(successState
+      //     .authSession.userPoolTokensResult.value.idToken
+      //     .toString());
     }
   }
 }
