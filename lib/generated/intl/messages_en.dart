@@ -20,31 +20,50 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
-  static String m0(placeholders, entityErrorMessage) =>
+  static String m0(schema) => "${Intl.select(schema, {
+            'codeDeliveryFailure':
+                'Failed to send code to email, please try again.',
+            'codeMismatch': 'Code provided is wrong, please try again.',
+            'invalidParameter': 'Email probably already confirmed.',
+            'usernameExists': 'There is already an account with this email.',
+            'notAuthorized': 'Unconfirmed email, confirm it.',
+            'userNotConfirmed': 'Unconfirmed email, confirm it.',
+            'signedOut': 'Incorrect email or password.',
+            'limitExceeded': 'Too many attempts in a row, try again later.',
+            'tooManyFailedAttempts':
+                'Looks like you tried the code wrong too many times, get in touch.',
+            'userNotFound': 'We couldn\'t find this registered email.',
+            'internalError':
+                'We are experiencing internal issues, please try again later.',
+            'other': 'An error occurred while confirming email.',
+          })}";
+
+  static String m1(placeholders, entityErrorMessage) =>
       "Field ${entityErrorMessage} is not valid";
 
-  static String m1(placeholders, message) => "No items found for ${message}";
+  static String m2(placeholders, message) => "No items found for ${message}";
 
-  static String m2(placeholders, message) => "${message}";
+  static String m3(placeholders, message) => "${message}";
 
-  static String m3(schema) => "${Intl.select(schema, {
+  static String m4(schema) => "${Intl.select(schema, {
             'APPROVED': 'Approved',
             'PENDING': 'Pending',
             'REJECTED': 'Rejected',
             'other': 'Other',
           })}";
 
-  static String m4(placeholders, successCreateUser) =>
+  static String m5(placeholders, successCreateUser) =>
       "User ${successCreateUser} created successfully";
 
-  static String m5(placeholders, successDeleteUser) =>
+  static String m6(placeholders, successDeleteUser) =>
       "User ${successDeleteUser} deleted successfully";
 
-  static String m6(placeholders, successUpdateUser) =>
+  static String m7(placeholders, successUpdateUser) =>
       "User ${successUpdateUser} updated successfully";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "authErrorsSchema": m0,
         "createPageTitle":
             MessageLookupByLibrary.simpleMessage("Create a new user"),
         "deletePageTitle":
@@ -52,7 +71,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "deleteTitle": MessageLookupByLibrary.simpleMessage("Delete"),
         "emptyListErrorMessage": MessageLookupByLibrary.simpleMessage(
             "List is empty, no items found for this request"),
-        "entityErrorMessage": m0,
+        "entityErrorMessage": m1,
         "fieldEmail": MessageLookupByLibrary.simpleMessage("Email"),
         "fieldHintEmail":
             MessageLookupByLibrary.simpleMessage("example@example.com"),
@@ -76,14 +95,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Explore the features of the template:"),
         "homePageTitle": MessageLookupByLibrary.simpleMessage(
             "Welcome to Clean Flutter Template"),
-        "noItemsFoundErrorMessage": m1,
+        "noItemsFoundErrorMessage": m2,
         "registerTitle": MessageLookupByLibrary.simpleMessage("Register"),
-        "requestErrorMessage": m2,
+        "requestErrorMessage": m3,
         "searchTitle": MessageLookupByLibrary.simpleMessage("Search"),
-        "stateNameSchema": m3,
-        "successCreateUser": m4,
-        "successDeleteUser": m5,
-        "successUpdateUser": m6,
+        "stateNameSchema": m4,
+        "successCreateUser": m5,
+        "successDeleteUser": m6,
+        "successUpdateUser": m7,
         "updatePageTitle":
             MessageLookupByLibrary.simpleMessage("Update an user"),
         "updateTitle": MessageLookupByLibrary.simpleMessage("Update")
