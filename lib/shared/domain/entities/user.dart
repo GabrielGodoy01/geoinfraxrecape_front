@@ -1,21 +1,22 @@
 import '../../helpers/errors/errors.dart';
-import '../enums/state_enum.dart';
 
 class User {
-  final int? id;
-  final String name;
+  final String? id;
+  final String fullName;
+  final String username;
   final String email;
-  final StateEnum state;
+  final String? password;
 
   static const int minNameLenght = 2;
 
   User({
+    required this.username,
+    required this.fullName,
+    this.password,
     required this.id,
-    required this.name,
     required this.email,
-    required this.state,
   }) {
-    if (!User.validateName(name)) {
+    if (!User.validateName(fullName)) {
       throw EntityError(message: 'name');
     }
     if (!User.validateEmail(email)) {
@@ -23,8 +24,8 @@ class User {
     }
   }
 
-  static bool validateName(String name) {
-    if (name.length < User.minNameLenght) {
+  static bool validateName(String fullName) {
+    if (fullName.length < User.minNameLenght || !fullName.contains(' ')) {
       return false;
     }
     return true;
