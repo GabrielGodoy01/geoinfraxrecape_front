@@ -17,7 +17,7 @@ import 'login_user_usecase_test.mocks.dart';
 
 @GenerateMocks([IAuthRepository])
 void main() {
-  late ILoginUserUsecase useCase;
+  late ILoginUserUsecase usecase;
   IAuthRepository repository = MockIAuthRepository();
   String email = '';
   String password = '';
@@ -30,7 +30,7 @@ void main() {
       signature: []);
 
   setUp(() {
-    useCase = LoginUserUsecase(repository: repository);
+    usecase = LoginUserUsecase(repository: repository);
   });
 
   test('[TEST] - login returns success CognitoAuthSession', () async {
@@ -46,7 +46,7 @@ void main() {
               idToken: mockJsonWebToken,
               refreshToken: "refreshToken")))),
     );
-    var result = await useCase(email, password);
+    var result = await usecase(email, password);
     expect(result.fold(id, id), isA<CognitoAuthSession>());
   });
 
@@ -54,7 +54,7 @@ void main() {
     when(repository.loginUser(email, password)).thenAnswer(
       (realInvocation) async => Left(AuthErrors(message: '')),
     );
-    var result = await useCase(email, password);
+    var result = await usecase(email, password);
     expect(result.fold(id, id), isA<AuthErrors>());
   });
 }

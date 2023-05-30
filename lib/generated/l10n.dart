@@ -362,6 +362,36 @@ class S {
       args: [schema],
     );
   }
+
+  /// `Required field.`
+  String get requiredFieldAlert {
+    return Intl.message(
+      'Required field.',
+      name: 'requiredFieldAlert',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid email.`
+  String get invalidEmailAlert {
+    return Intl.message(
+      'Invalid email.',
+      name: 'invalidEmailAlert',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid password.`
+  String get invalidPasswordAlert {
+    return Intl.message(
+      'Invalid password.',
+      name: 'invalidPasswordAlert',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

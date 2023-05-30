@@ -97,9 +97,15 @@ class MessageLookup extends MessageLookupByLibrary {
             "Explore as funcionalidades do template:"),
         "homePageTitle": MessageLookupByLibrary.simpleMessage(
             "Bem-vindo ao Clean Flutter Template"),
+        "invalidEmailAlert":
+            MessageLookupByLibrary.simpleMessage("E-mail inválido."),
+        "invalidPasswordAlert":
+            MessageLookupByLibrary.simpleMessage("Senha inválida."),
         "noItemsFoundErrorMessage": m2,
         "registerTitle": MessageLookupByLibrary.simpleMessage("Cadastrar"),
         "requestErrorMessage": m3,
+        "requiredFieldAlert":
+            MessageLookupByLibrary.simpleMessage("Campo obrigatório."),
         "searchTitle": MessageLookupByLibrary.simpleMessage("Procurar"),
         "stateNameSchema": m4,
         "successCreateUser": m5,
