@@ -1,4 +1,3 @@
-import 'package:clean_flutter_template/shared/domain/storage/local_storage_interface.dart';
 import 'package:clean_flutter_template/shared/helpers/services/http_request_interface.dart';
 import 'package:clean_flutter_template/shared/helpers/services/http_service.dart';
 import 'package:dio/dio.dart';
@@ -8,14 +7,13 @@ import 'package:mockito/mockito.dart';
 
 import 'http_service_test.mocks.dart';
 
-@GenerateMocks([ILocalStorage, IHttpRequest])
+@GenerateMocks([IHttpRequest])
 void main() {
-  ILocalStorage storage = MockILocalStorage();
   IHttpRequest httpRequest = MockIHttpRequest();
   late HttpService httpService;
 
   setUp(() async {
-    httpService = HttpService(storage: storage, httpRequest: httpRequest);
+    httpService = HttpService(httpRequest: httpRequest);
   });
 
   group('[TEST] - get', () {
