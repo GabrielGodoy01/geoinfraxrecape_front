@@ -31,7 +31,7 @@ abstract class LogoutControllerBase with Store {
     }));
     if (state is LogoutSuccessState) {
       // await storage.cleanSecureStorage();
-      Modular.to.pushReplacementNamed('/');
+      Modular.to.navigate('/');
     }
   }
 }
