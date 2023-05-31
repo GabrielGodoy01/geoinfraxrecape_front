@@ -1,3 +1,4 @@
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 import '../../../../../../shared/domain/usecases/get_user_attributes_usecase.dart';
 import '../../../../../../shared/domain/usecases/login_user_usecase.dart';
@@ -68,6 +69,7 @@ abstract class LoginControllerBase with Store {
       return changeState(LoginSuccessState(authSession: authSession));
     });
     if (state is LoginSuccessState) {
+      Modular.to.navigate('/home');
       // var successState = state as LoginSuccessState;
       // await storage.saveAccessToken(successState
       //     .authSession.userPoolTokensResult.value.accessToken
