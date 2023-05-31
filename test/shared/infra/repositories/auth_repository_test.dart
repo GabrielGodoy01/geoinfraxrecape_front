@@ -78,4 +78,23 @@ void main() {
       expect(result.fold((l) => l, (r) => null), isA<AuthErrors>());
     });
   });
+
+  group('[TEST] - getUserAttributes', () {
+    test('returns success void', () async {
+      AuthUserAttribute user = const AuthUserAttribute(
+          userAttributeKey: CognitoUserAttributeKey.custom('custom:role'),
+          value: 'student');
+      when(datasource.getUserAttributes())
+          .thenAnswer((realInvocation) async => Right([user]));
+      var result = await repository.getUserAttributes();
+      expect(result.fold((l) => l, (r) => null), isA<void>());
+    });
+
+    test('returns error', () async {
+      when(datasource.getUserAttributes())
+          .thenAnswer((realInvocation) async => Left(AuthErrors(message: '')));
+      var result = await repository.getUserAttributes();
+      expect(result.fold((l) => l, (r) => null), isA<AuthErrors>());
+    });
+  });
 }

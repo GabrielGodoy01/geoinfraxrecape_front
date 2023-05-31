@@ -6,11 +6,6 @@
 
     "enterTitle": "Entrar",
 
-    "fieldRequired": "Campo é obrigatório",
-    "fieldMinLength": "O campo deve ter pelo menos 6 caracteres",
-    "fieldInvalidEmail": "O campo deve ser um endereço de e-mail válido",
-    "fieldInvalidId": "O campo deve ser um número inteiro válido",
-
     "entityErrorMessage": "Campo {entityErrorMessage} não é válido",
     "@entityErrorMessage" : {
         "placeholders": {

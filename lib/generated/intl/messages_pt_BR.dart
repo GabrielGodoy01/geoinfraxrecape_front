@@ -55,16 +55,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterTitle": MessageLookupByLibrary.simpleMessage("Entrar"),
         "entityErrorMessage": m1,
         "fieldEmail": MessageLookupByLibrary.simpleMessage("Email"),
-        "fieldInvalidEmail": MessageLookupByLibrary.simpleMessage(
-            "O campo deve ser um endereço de e-mail válido"),
-        "fieldInvalidId": MessageLookupByLibrary.simpleMessage(
-            "O campo deve ser um número inteiro válido"),
-        "fieldMinLength": MessageLookupByLibrary.simpleMessage(
-            "O campo deve ter pelo menos 6 caracteres"),
         "fieldName": MessageLookupByLibrary.simpleMessage("Nome"),
         "fieldPassword": MessageLookupByLibrary.simpleMessage("Senha"),
-        "fieldRequired":
-            MessageLookupByLibrary.simpleMessage("Campo é obrigatório"),
         "invalidEmailAlert":
             MessageLookupByLibrary.simpleMessage("E-mail inválido."),
         "invalidPasswordAlert":

@@ -96,5 +96,22 @@ void main() {
           .changeState(LoginSuccessState(authSession: cognitoAuthSession));
       expect(controller.state, isA<LoginSuccessState>());
     });
+
+    test('changePasswordState', () {
+      controller.changePasswordState();
+      expect(controller.isPasswordVisible, false);
+    });
+  });
+
+  test('[TEST] - validateEmail', () {
+    expect(controller.validateEmail(''), S.current.requiredFieldAlert);
+    expect(controller.validateEmail('0'), S.current.invalidEmailAlert);
+    expect(controller.validateEmail('gabriel.godoybz@hotmail.com'), null);
+  });
+
+  test('[TEST] - validatePassword', () {
+    expect(controller.validatePassword(''), S.current.requiredFieldAlert);
+    expect(controller.validatePassword('0'), S.current.invalidPasswordAlert);
+    expect(controller.validatePassword('Teste123!'), null);
   });
 }
