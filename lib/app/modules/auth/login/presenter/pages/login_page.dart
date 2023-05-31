@@ -112,7 +112,7 @@ class LoginPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
               child: Text(
-                error.message,
+                S.current.requestErrorMessage('', error.message),
                 style: AppTextStyles.bodyMedium,
                 textAlign: TextAlign.center,
               ),

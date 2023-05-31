@@ -15,7 +15,7 @@
     "@entityErrorMessage" : {
         "placeholders": {
             "placeholders": {
-                "restaurantName": {}
+                "entityErrorMessage": {}
             }
         }
     },
@@ -26,7 +26,7 @@
     "@requestErrorMessage" : {
         "placeholders": {
             "placeholders": {
-                "restaurantName": {}
+                "requestErrorMessage": {}
             }
         }
     },
@@ -35,7 +35,7 @@
     "@noItemsFoundErrorMessage" : {
         "placeholders": {
             "placeholders": {
-                "restaurantName": {}
+                "noItemsFoundErrorMessage": {}
             }
         }
     },
