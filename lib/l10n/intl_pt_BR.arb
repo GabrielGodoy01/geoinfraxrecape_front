@@ -1,67 +1,16 @@
 {
-    "stateNameSchema": "{schema, select, APPROVED{Aprovado} PENDING{Pendente} REJECTED{Rejeitado} other{Other}}",
-    
-
-    "homePageTitle": "Bem-vindo ao Clean Flutter Template",
-    "homePageSubtitle": "Explore as funcionalidades do template:",
-
-    "createPageTitle": "Crie um novo usuário",
-    "registerTitle": "Cadastrar",
 
     "fieldName": "Nome",
     "fieldEmail": "Email",
-    "fieldId": "ID",
-    "fieldHintName": "Gabriel de Godoy Braz",
-    "fieldHintEmail": "exemplo@exemplo.com",
-    "fieldHintId": "Número de identificação do usuário",
+    "fieldPassword": "Senha",
 
-    "fieldRequired": "Campo é obrigatório",
-    "fieldMinLength": "O campo deve ter pelo menos 6 caracteres",
-    "fieldInvalidEmail": "O campo deve ser um endereço de e-mail válido",
-    "fieldInvalidId": "O campo deve ser um número inteiro válido",
-
-    "successCreateUser": "Usuário {successCreateUser} criado com sucesso",
-    "@successCreateUser" : {
-        "placeholders": {
-            "placeholders": {
-                "successCreateUser": {}
-            }
-        }
-    },
-
-    "getPageTitle": "Procure um usuário",
-    "searchTitle": "Procurar",
-
-    "updatePageTitle": "Dê update em um usuário",
-    "updateTitle": "Update",
-
-    "deletePageTitle": "Delete um usuário",
-    "deleteTitle": "Deletar",
-
-
-    "successUpdateUser": "Usuário {successUpdateUser} updated com sucesso",
-    "@successUpdateUser" : {
-        "placeholders": {
-            "placeholders": {
-                "successUpdateUser": {}
-            }
-        }
-    },
-
-    "successDeleteUser": "Usuário {successDeleteUser} deletado com sucesso",
-    "@successDeleteUser" : {
-        "placeholders": {
-            "placeholders": {
-                "successDeleteUser": {}
-            }
-        }
-    },
+    "enterTitle": "Entrar",
 
     "entityErrorMessage": "Campo {entityErrorMessage} não é válido",
     "@entityErrorMessage" : {
         "placeholders": {
             "placeholders": {
-                "restaurantName": {}
+                "entityErrorMessage": {}
             }
         }
     },
@@ -72,7 +21,7 @@
     "@requestErrorMessage" : {
         "placeholders": {
             "placeholders": {
-                "restaurantName": {}
+                "requestErrorMessage": {}
             }
         }
     },
@@ -81,8 +30,14 @@
     "@noItemsFoundErrorMessage" : {
         "placeholders": {
             "placeholders": {
-                "restaurantName": {}
+                "noItemsFoundErrorMessage": {}
             }
         }
-    }
+    },
+
+    "authErrorsSchema": "{schema, select, codeDeliveryFailure{Falha ao enviar código para o e-mail, tente novamente.} codeMismatch{Código fornecido está errado, tente novamente.} invalidParameter{Algum campo preenchido de forma errada.} usernameExists{Já existe um cadastro com este e-mail.} notAuthorized{E-mail não confirmado, confirme-o.} userNotConfirmed{E-mail não confirmado, confirme-o.} signedOut{E-mail ou senha incorretos.} limitExceeded{Muitas tentativas em sequência, tente novamente mais tarde.} invalidParameter{E-mail, provavelmente, já confirmado.} tooManyFailedAttempts{Parece que você tentou errou o código muitas vezes, entre em contato.} userNotFound{Não encontramos este e-mail cadastrado.} internalError{Estamos com problemas internos, tente mais tarde.} codeMismatch{Código fornecido está errado, tente novamente.} other{Ocorreu algum erro ao confirmar e-mail.}}",
+
+    "requiredFieldAlert": "Campo obrigatório.",
+    "invalidEmailAlert": "E-mail inválido.",
+    "invalidPasswordAlert": "Senha inválida."
 }

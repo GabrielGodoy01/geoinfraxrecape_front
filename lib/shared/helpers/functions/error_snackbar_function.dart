@@ -13,7 +13,7 @@ void showErrorSnackBarFunction({required String errorMessage, Color? color}) {
       backgroundColor: color ?? Colors.black.withOpacity(0.7),
       content: Text(
         errorMessage,
-        style: AppTextStyles.headline2.copyWith(
+        style: AppTextStyles.displayMedium.copyWith(
           fontSize: 18,
           color: Colors.white,
         ),

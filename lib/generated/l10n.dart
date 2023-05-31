@@ -50,62 +50,6 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `{schema, select, APPROVED{Approved} PENDING{Pending} REJECTED{Rejected} other{Other}}`
-  String stateNameSchema(Object schema) {
-    return Intl.select(
-      schema,
-      {
-        'APPROVED': 'Approved',
-        'PENDING': 'Pending',
-        'REJECTED': 'Rejected',
-        'other': 'Other',
-      },
-      name: 'stateNameSchema',
-      desc: '',
-      args: [schema],
-    );
-  }
-
-  /// `Welcome to Clean Flutter Template`
-  String get homePageTitle {
-    return Intl.message(
-      'Welcome to Clean Flutter Template',
-      name: 'homePageTitle',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Explore the features of the template:`
-  String get homePageSubtitle {
-    return Intl.message(
-      'Explore the features of the template:',
-      name: 'homePageSubtitle',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Create a new user`
-  String get createPageTitle {
-    return Intl.message(
-      'Create a new user',
-      name: 'createPageTitle',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Register`
-  String get registerTitle {
-    return Intl.message(
-      'Register',
-      name: 'registerTitle',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Name`
   String get fieldName {
     return Intl.message(
@@ -126,173 +70,23 @@ class S {
     );
   }
 
-  /// `ID`
-  String get fieldId {
+  /// `Password`
+  String get fieldPassword {
     return Intl.message(
-      'ID',
-      name: 'fieldId',
+      'Password',
+      name: 'fieldPassword',
       desc: '',
       args: [],
     );
   }
 
-  /// `Gabriel de Godoy Braz`
-  String get fieldHintName {
+  /// `Enter`
+  String get enterTitle {
     return Intl.message(
-      'Gabriel de Godoy Braz',
-      name: 'fieldHintName',
+      'Enter',
+      name: 'enterTitle',
       desc: '',
       args: [],
-    );
-  }
-
-  /// `example@example.com`
-  String get fieldHintEmail {
-    return Intl.message(
-      'example@example.com',
-      name: 'fieldHintEmail',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Identification number`
-  String get fieldHintId {
-    return Intl.message(
-      'Identification number',
-      name: 'fieldHintId',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Field is required`
-  String get fieldRequired {
-    return Intl.message(
-      'Field is required',
-      name: 'fieldRequired',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Field must be at least 6 characters long`
-  String get fieldMinLength {
-    return Intl.message(
-      'Field must be at least 6 characters long',
-      name: 'fieldMinLength',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Field must be a valid email address`
-  String get fieldInvalidEmail {
-    return Intl.message(
-      'Field must be a valid email address',
-      name: 'fieldInvalidEmail',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Field must be a valid integer`
-  String get fieldInvalidId {
-    return Intl.message(
-      'Field must be a valid integer',
-      name: 'fieldInvalidId',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `User {successCreateUser} created successfully`
-  String successCreateUser(Object placeholders, Object successCreateUser) {
-    return Intl.message(
-      'User $successCreateUser created successfully',
-      name: 'successCreateUser',
-      desc: '',
-      args: [placeholders, successCreateUser],
-    );
-  }
-
-  /// `Search for a user`
-  String get getPageTitle {
-    return Intl.message(
-      'Search for a user',
-      name: 'getPageTitle',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Search`
-  String get searchTitle {
-    return Intl.message(
-      'Search',
-      name: 'searchTitle',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Update an user`
-  String get updatePageTitle {
-    return Intl.message(
-      'Update an user',
-      name: 'updatePageTitle',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Update`
-  String get updateTitle {
-    return Intl.message(
-      'Update',
-      name: 'updateTitle',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Delete an user`
-  String get deletePageTitle {
-    return Intl.message(
-      'Delete an user',
-      name: 'deletePageTitle',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Delete`
-  String get deleteTitle {
-    return Intl.message(
-      'Delete',
-      name: 'deleteTitle',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `User {successUpdateUser} updated successfully`
-  String successUpdateUser(Object placeholders, Object successUpdateUser) {
-    return Intl.message(
-      'User $successUpdateUser updated successfully',
-      name: 'successUpdateUser',
-      desc: '',
-      args: [placeholders, successUpdateUser],
-    );
-  }
-
-  /// `User {successDeleteUser} deleted successfully`
-  String successDeleteUser(Object placeholders, Object successDeleteUser) {
-    return Intl.message(
-      'User $successDeleteUser deleted successfully',
-      name: 'successDeleteUser',
-      desc: '',
-      args: [placeholders, successDeleteUser],
     );
   }
 
@@ -333,6 +127,63 @@ class S {
       name: 'noItemsFoundErrorMessage',
       desc: '',
       args: [placeholders, message],
+    );
+  }
+
+  /// `{schema, select, codeDeliveryFailure{Failed to send code to email, please try again.} codeMismatch{Code provided is wrong, please try again.} invalidParameter{Some field filled in incorrectly.} usernameExists{There is already an account with this email.} notAuthorized{Unconfirmed email, confirm it.} userNotConfirmed{Unconfirmed email, confirm it.} signedOut{Incorrect email or password.} limitExceeded{Too many attempts in a row, try again later.} invalidParameter{Email probably already confirmed.} tooManyFailedAttempts{Looks like you tried the code wrong too many times, get in touch.} userNotFound{We couldn't find this registered email.} internalError{We are experiencing internal issues, please try again later.} codeMismatch{Code provided is wrong, please try again.} other{An error occurred while confirming email.}}`
+  String authErrorsSchema(Object schema) {
+    return Intl.select(
+      schema,
+      {
+        'codeDeliveryFailure':
+            'Failed to send code to email, please try again.',
+        'codeMismatch': 'Code provided is wrong, please try again.',
+        'invalidParameter': 'Some field filled in incorrectly.',
+        'usernameExists': 'There is already an account with this email.',
+        'notAuthorized': 'Unconfirmed email, confirm it.',
+        'userNotConfirmed': 'Unconfirmed email, confirm it.',
+        'signedOut': 'Incorrect email or password.',
+        'limitExceeded': 'Too many attempts in a row, try again later.',
+        'tooManyFailedAttempts':
+            'Looks like you tried the code wrong too many times, get in touch.',
+        'userNotFound': 'We couldn\'t find this registered email.',
+        'internalError':
+            'We are experiencing internal issues, please try again later.',
+        'other': 'An error occurred while confirming email.',
+      },
+      name: 'authErrorsSchema',
+      desc: '',
+      args: [schema],
+    );
+  }
+
+  /// `Required field.`
+  String get requiredFieldAlert {
+    return Intl.message(
+      'Required field.',
+      name: 'requiredFieldAlert',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid email.`
+  String get invalidEmailAlert {
+    return Intl.message(
+      'Invalid email.',
+      name: 'invalidEmailAlert',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid password.`
+  String get invalidPasswordAlert {
+    return Intl.message(
+      'Invalid password.',
+      name: 'invalidPasswordAlert',
+      desc: '',
+      args: [],
     );
   }
 }

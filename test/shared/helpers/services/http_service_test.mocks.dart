@@ -5,10 +5,8 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i4;
 
-import 'package:clean_flutter_template/shared/domain/storage/local_storage_interface.dart'
-    as _i3;
 import 'package:clean_flutter_template/shared/helpers/services/http_request_interface.dart'
-    as _i5;
+    as _i3;
 import 'package:dio/dio.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 
@@ -33,37 +31,10 @@ class _FakeResponse_0<T> extends _i1.SmartFake implements _i2.Response<T> {
         );
 }
 
-/// A class which mocks [ILocalStorage].
-///
-/// See the documentation for Mockito's code generation for more information.
-class MockILocalStorage extends _i1.Mock implements _i3.ILocalStorage {
-  MockILocalStorage() {
-    _i1.throwOnMissingStub(this);
-  }
-
-  @override
-  _i4.Future<void> saveRefreshToken(String? token) => (super.noSuchMethod(
-        Invocation.method(
-          #saveRefreshToken,
-          [token],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
-  @override
-  _i4.Future<String> getRefreshToken() => (super.noSuchMethod(
-        Invocation.method(
-          #getRefreshToken,
-          [],
-        ),
-        returnValue: _i4.Future<String>.value(''),
-      ) as _i4.Future<String>);
-}
-
 /// A class which mocks [IHttpRequest].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockIHttpRequest extends _i1.Mock implements _i5.IHttpRequest {
+class MockIHttpRequest extends _i1.Mock implements _i3.IHttpRequest {
   MockIHttpRequest() {
     _i1.throwOnMissingStub(this);
   }
