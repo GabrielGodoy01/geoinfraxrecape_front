@@ -26,7 +26,7 @@ void main() {
       };
       final response = Response(
           data: userData, statusCode: 200, requestOptions: RequestOptions());
-      when(httpService.get('url')).thenAnswer((_) async => response);
+      when(httpRequest.get('url')).thenAnswer((_) async => response);
       var res = await httpService.get('url');
       expect(res.statusCode, 200);
     });
@@ -40,7 +40,7 @@ void main() {
       };
       final response = Response(
           data: userData, statusCode: 500, requestOptions: RequestOptions());
-      when(httpService.get('url')).thenAnswer((_) async => response);
+      when(httpRequest.get('url')).thenAnswer((_) async => response);
       var res = await httpService.get('url');
       expect(res.statusCode, 500);
     });
@@ -56,7 +56,7 @@ void main() {
       };
       final response = Response(
           data: userData, statusCode: 200, requestOptions: RequestOptions());
-      when(httpService.post('url')).thenAnswer((_) async => response);
+      when(httpRequest.post('url', null)).thenAnswer((_) async => response);
       var res = await httpService.post('url');
       expect(res.statusCode, 200);
     });
@@ -70,7 +70,7 @@ void main() {
       };
       final response = Response(
           data: userData, statusCode: 500, requestOptions: RequestOptions());
-      when(httpService.post('url')).thenAnswer((_) async => response);
+      when(httpRequest.post('url', null)).thenAnswer((_) async => response);
       var res = await httpService.post('url');
       expect(res.statusCode, 500);
     });
@@ -86,7 +86,7 @@ void main() {
       };
       final response = Response(
           data: userData, statusCode: 200, requestOptions: RequestOptions());
-      when(httpService.put('url')).thenAnswer((_) async => response);
+      when(httpRequest.put('url', null)).thenAnswer((_) async => response);
       var res = await httpService.put('url');
       expect(res.statusCode, 200);
     });
@@ -100,7 +100,7 @@ void main() {
       };
       final response = Response(
           data: userData, statusCode: 500, requestOptions: RequestOptions());
-      when(httpService.put('url')).thenAnswer((_) async => response);
+      when(httpRequest.put('url', null)).thenAnswer((_) async => response);
       var res = await httpService.put('url');
       expect(res.statusCode, 500);
     });
