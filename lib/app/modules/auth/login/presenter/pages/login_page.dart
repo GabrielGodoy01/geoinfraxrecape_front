@@ -24,78 +24,66 @@ class LoginPage extends StatelessWidget {
         body: Observer(builder: (_) {
           var state = loginController.state;
 
-          return Stack(
-            children: [
-              Positioned(
-                top: 50,
-                left:
-                    ScreenHelper.width(context) < ScreenHelper.breakpointTablet
-                        ? 0
-                        : ScreenHelper.width(context) / 2 - 250,
-                child: SizedBox(
-                  width: ScreenHelper.width(context) <
-                          ScreenHelper.breakpointTablet
-                      ? ScreenHelper.width(context)
-                      : 500,
-                  height: ScreenHelper.width(context) <
-                          ScreenHelper.breakpointTablet
-                      ? 180
-                      : 300,
-                  child: const Image(
-                      image: AssetImage('assets/images/gaia_logo.png'),
-                      fit: BoxFit.fill),
-                ),
-              ),
-              Center(
-                child: SizedBox(
-                  width: ScreenHelper.width(context) <
-                          ScreenHelper.breakpointTablet
-                      ? ScreenHelper.width(context)
-                      : ScreenHelper.breakpointTablet,
-                  child: Form(
-                    key: formKey,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        state is LoginErrorState
-                            ? _buildError(state.error)
-                            : const SizedBox(
-                                height: 24,
-                              ),
-                        TextFieldCustomWidget(
-                          hintText: S.current.fieldEmail,
-                          onChanged: loginController.setEmail,
-                          validator: loginController.validateEmail,
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        TextFieldCustomWidget(
-                          hintText: S.current.fieldPassword,
-                          onChanged: loginController.setPassword,
-                          validator: loginController.validatePassword,
-                          isPassword: true,
-                          showText: loginController.isPasswordVisible,
-                          onToggleVisibilityPwd:
-                              loginController.changePasswordState,
-                        ),
-                        const SizedBox(
-                          height: 32,
-                        ),
-                        AuthButtonWidget(
-                            title: S.of(context).enterTitle,
-                            onPressed: () {
-                              if (formKey.currentState!.validate()) {
-                                loginController.loginWithEmail();
-                              }
-                            }),
-                      ],
+          return Center(
+            child: SizedBox(
+              width: ScreenHelper.width(context) < ScreenHelper.breakpointTablet
+                  ? ScreenHelper.width(context)
+                  : ScreenHelper.breakpointTablet,
+              child: Form(
+                key: formKey,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: ScreenHelper.width(context) <
+                              ScreenHelper.breakpointTablet
+                          ? ScreenHelper.width(context)
+                          : 500,
+                      height: ScreenHelper.width(context) <
+                              ScreenHelper.breakpointTablet
+                          ? 180
+                          : 280,
+                      child: const Image(
+                          image: AssetImage('assets/images/gaia_logo.png'),
+                          fit: BoxFit.fill),
                     ),
-                  ),
+                    state is LoginErrorState
+                        ? _buildError(state.error)
+                        : const SizedBox(
+                            height: 24,
+                          ),
+                    TextFieldCustomWidget(
+                      hintText: S.current.fieldEmail,
+                      onChanged: loginController.setEmail,
+                      validator: loginController.validateEmail,
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    TextFieldCustomWidget(
+                      hintText: S.current.fieldPassword,
+                      onChanged: loginController.setPassword,
+                      validator: loginController.validatePassword,
+                      isPassword: true,
+                      showText: loginController.isPasswordVisible,
+                      onToggleVisibilityPwd:
+                          loginController.changePasswordState,
+                    ),
+                    const SizedBox(
+                      height: 32,
+                    ),
+                    AuthButtonWidget(
+                        title: S.of(context).enterTitle,
+                        onPressed: () {
+                          if (formKey.currentState!.validate()) {
+                            loginController.loginWithEmail();
+                          }
+                        }),
+                  ],
                 ),
               ),
-            ],
+            ),
           );
         }));
   }
