@@ -11,14 +11,28 @@ class ChangePasswordController = ChangePasswordControllerBase
 
 abstract class ChangePasswordControllerBase with Store {
   final IChangePasswordUsecase _changePassword;
+  final String email;
 
-  ChangePasswordControllerBase(this._changePassword);
+  ChangePasswordControllerBase(this._changePassword, this.email);
 
   @observable
   ChangePasswordState state = ChangePasswordInitialState();
 
   @action
   void changeState(ChangePasswordState value) => state = value;
+
+  @observable
+  bool isPasswordVisible = true;
+
+  @action
+  void changePasswordVisibility() => isPasswordVisible = !isPasswordVisible;
+
+  @observable
+  bool isConfirmPasswordVisible = true;
+
+  @action
+  void changeConfirmPasswordVisibility() =>
+      isPasswordVisible = !isPasswordVisible;
 
   @observable
   String code = '';
@@ -52,7 +66,7 @@ abstract class ChangePasswordControllerBase with Store {
   @action
   Future<void> changePassword() async {
     state = ChangePasswordLoadingState();
-    var result = await _changePassword('', code, newPassword);
+    var result = await _changePassword(email, code, newPassword);
     state = result.fold((failure) {
       return ChangePasswordErrorState(error: failure);
     }, (isConfirmed) {

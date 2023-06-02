@@ -3,11 +3,13 @@
     "fieldName": "Name",
     "fieldEmail": "Email",
     "fieldPassword": "Password",
+    "fieldConfirmPassword": "Confirm Password",
 
     "enterTitle": "Enter",
     "forgotPasswordTitle": "Forgot password",
     "forgotPasswordInstructions": "Please enter your email, we will send you a verification code.",
     "sendTitle": "Send",
+    "changePasswordInstructions": "Please enter the verification code and new password.",
 
     "entityErrorMessage": "Field {entityErrorMessage} is not valid",
     "@entityErrorMessage" : {

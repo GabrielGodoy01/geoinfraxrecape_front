@@ -25,6 +25,40 @@ mixin _$ChangePasswordController on ChangePasswordControllerBase, Store {
     });
   }
 
+  late final _$isPasswordVisibleAtom = Atom(
+      name: 'ChangePasswordControllerBase.isPasswordVisible', context: context);
+
+  @override
+  bool get isPasswordVisible {
+    _$isPasswordVisibleAtom.reportRead();
+    return super.isPasswordVisible;
+  }
+
+  @override
+  set isPasswordVisible(bool value) {
+    _$isPasswordVisibleAtom.reportWrite(value, super.isPasswordVisible, () {
+      super.isPasswordVisible = value;
+    });
+  }
+
+  late final _$isConfirmPasswordVisibleAtom = Atom(
+      name: 'ChangePasswordControllerBase.isConfirmPasswordVisible',
+      context: context);
+
+  @override
+  bool get isConfirmPasswordVisible {
+    _$isConfirmPasswordVisibleAtom.reportRead();
+    return super.isConfirmPasswordVisible;
+  }
+
+  @override
+  set isConfirmPasswordVisible(bool value) {
+    _$isConfirmPasswordVisibleAtom
+        .reportWrite(value, super.isConfirmPasswordVisible, () {
+      super.isConfirmPasswordVisible = value;
+    });
+  }
+
   late final _$codeAtom =
       Atom(name: 'ChangePasswordControllerBase.code', context: context);
 
@@ -92,6 +126,31 @@ mixin _$ChangePasswordController on ChangePasswordControllerBase, Store {
         .startAction(name: 'ChangePasswordControllerBase.changeState');
     try {
       return super.changeState(value);
+    } finally {
+      _$ChangePasswordControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void changePasswordVisibility() {
+    final _$actionInfo =
+        _$ChangePasswordControllerBaseActionController.startAction(
+            name: 'ChangePasswordControllerBase.changePasswordVisibility');
+    try {
+      return super.changePasswordVisibility();
+    } finally {
+      _$ChangePasswordControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void changeConfirmPasswordVisibility() {
+    final _$actionInfo =
+        _$ChangePasswordControllerBaseActionController.startAction(
+            name:
+                'ChangePasswordControllerBase.changeConfirmPasswordVisibility');
+    try {
+      return super.changeConfirmPasswordVisibility();
     } finally {
       _$ChangePasswordControllerBaseActionController.endAction(_$actionInfo);
     }
@@ -169,6 +228,8 @@ mixin _$ChangePasswordController on ChangePasswordControllerBase, Store {
   String toString() {
     return '''
 state: ${state},
+isPasswordVisible: ${isPasswordVisible},
+isConfirmPasswordVisible: ${isConfirmPasswordVisible},
 code: ${code},
 newPassword: ${newPassword},
 confirmNewPassword: ${confirmNewPassword}

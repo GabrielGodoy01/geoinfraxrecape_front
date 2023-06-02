@@ -25,7 +25,7 @@ abstract class LoginControllerBase with Store {
   bool isPasswordVisible = true;
 
   @action
-  void changePasswordState() => isPasswordVisible = !isPasswordVisible;
+  void changePasswordVisibility() => isPasswordVisible = !isPasswordVisible;
 
   @observable
   String email = '';

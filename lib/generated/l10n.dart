@@ -80,6 +80,16 @@ class S {
     );
   }
 
+  /// `Confirm Password`
+  String get fieldConfirmPassword {
+    return Intl.message(
+      'Confirm Password',
+      name: 'fieldConfirmPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Enter`
   String get enterTitle {
     return Intl.message(
@@ -115,6 +125,16 @@ class S {
     return Intl.message(
       'Send',
       name: 'sendTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter the verification code and new password.`
+  String get changePasswordInstructions {
+    return Intl.message(
+      'Please enter the verification code and new password.',
+      name: 'changePasswordInstructions',
       desc: '',
       args: [],
     );

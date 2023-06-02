@@ -48,10 +48,14 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "authErrorsSchema": m0,
+        "changePasswordInstructions": MessageLookupByLibrary.simpleMessage(
+            "Please enter the verification code and new password."),
         "emptyListErrorMessage": MessageLookupByLibrary.simpleMessage(
             "List is empty, no items found for this request"),
         "enterTitle": MessageLookupByLibrary.simpleMessage("Enter"),
         "entityErrorMessage": m1,
+        "fieldConfirmPassword":
+            MessageLookupByLibrary.simpleMessage("Confirm Password"),
         "fieldEmail": MessageLookupByLibrary.simpleMessage("Email"),
         "fieldName": MessageLookupByLibrary.simpleMessage("Name"),
         "fieldPassword": MessageLookupByLibrary.simpleMessage("Password"),

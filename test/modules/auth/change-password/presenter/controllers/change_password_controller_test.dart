@@ -18,7 +18,7 @@ void main() {
   IChangePasswordUsecase usecase = MockIChangePasswordUsecase();
 
   setUp(() async {
-    controller = ChangePasswordController(usecase);
+    controller = ChangePasswordController(usecase, '');
     await S.load(const Locale.fromSubtags(languageCode: 'en'));
   });
 

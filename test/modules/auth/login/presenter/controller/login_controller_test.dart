@@ -98,7 +98,7 @@ void main() {
     });
 
     test('changePasswordState', () {
-      controller.changePasswordState();
+      controller.changePasswordVisibility();
       expect(controller.isPasswordVisible, false);
     });
   });
