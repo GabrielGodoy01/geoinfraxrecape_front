@@ -6,5 +6,6 @@ abstract class IAuthRepository {
   Future<Either<AuthErrors, CognitoAuthSession>> loginUser(
       String email, String password);
   Future<Either<AuthErrors, void>> logoutUser();
+  Future<Either<AuthErrors, void>> forgotPassword(String email);
   Future<Either<AuthErrors, List<AuthUserAttribute>>> getUserAttributes();
 }
