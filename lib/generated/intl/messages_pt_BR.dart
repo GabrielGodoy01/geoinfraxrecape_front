@@ -26,7 +26,7 @@ class MessageLookup extends MessageLookupByLibrary {
             'codeMismatch': 'Código fornecido está errado, tente novamente.',
             'invalidParameter': 'E-mail, provavelmente, já confirmado.',
             'usernameExists': 'Já existe um cadastro com este e-mail.',
-            'notAuthorized': 'E-mail não confirmado, confirme-o.',
+            'notAuthorized': 'E-mail ou senha incorretos.',
             'userNotConfirmed': 'E-mail não confirmado, confirme-o.',
             'signedOut': 'E-mail ou senha incorretos.',
             'limitExceeded':
@@ -57,6 +57,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "fieldEmail": MessageLookupByLibrary.simpleMessage("Email"),
         "fieldName": MessageLookupByLibrary.simpleMessage("Nome"),
         "fieldPassword": MessageLookupByLibrary.simpleMessage("Senha"),
+        "forgotPasswordTitle":
+            MessageLookupByLibrary.simpleMessage("Esqueci minha senha"),
         "invalidEmailAlert":
             MessageLookupByLibrary.simpleMessage("E-mail inválido."),
         "invalidPasswordAlert":

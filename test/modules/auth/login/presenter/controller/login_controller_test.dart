@@ -33,7 +33,7 @@ void main() {
   IGetUserAttributesUsecase getUserAttributes = MockIGetUserAttributesUsecase();
 
   setUp(() async {
-    controller = LoginController(usecase, getUserAttributes);
+    controller = LoginController(usecase);
     await S.load(const Locale.fromSubtags(languageCode: 'en'));
   });
 

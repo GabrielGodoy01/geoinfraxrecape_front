@@ -26,7 +26,7 @@ class MessageLookup extends MessageLookupByLibrary {
             'codeMismatch': 'Code provided is wrong, please try again.',
             'invalidParameter': 'Email probably already confirmed.',
             'usernameExists': 'There is already an account with this email.',
-            'notAuthorized': 'Unconfirmed email, confirm it.',
+            'notAuthorized': 'Incorrect username or password.',
             'userNotConfirmed': 'Unconfirmed email, confirm it.',
             'signedOut': 'Incorrect email or password.',
             'limitExceeded': 'Too many attempts in a row, try again later.',
@@ -55,6 +55,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "fieldEmail": MessageLookupByLibrary.simpleMessage("Email"),
         "fieldName": MessageLookupByLibrary.simpleMessage("Name"),
         "fieldPassword": MessageLookupByLibrary.simpleMessage("Password"),
+        "forgotPasswordTitle":
+            MessageLookupByLibrary.simpleMessage("Forgot password"),
         "invalidEmailAlert":
             MessageLookupByLibrary.simpleMessage("Invalid email."),
         "invalidPasswordAlert":
