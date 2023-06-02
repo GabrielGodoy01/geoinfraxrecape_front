@@ -6,6 +6,8 @@
 
     "enterTitle": "Entrar",
     "forgotPasswordTitle": "Esqueci minha senha",
+    "forgotPasswordInstructions": "Por favor, digite seu e-mail, nós lhe enviaremos um código de verificação.",
+    "sendTitle": "Enviar",
 
     "entityErrorMessage": "Campo {entityErrorMessage} não é válido",
     "@entityErrorMessage" : {

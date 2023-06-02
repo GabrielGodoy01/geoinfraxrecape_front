@@ -100,6 +100,26 @@ class S {
     );
   }
 
+  /// `Please enter your email, we will send you a verification code.`
+  String get forgotPasswordInstructions {
+    return Intl.message(
+      'Please enter your email, we will send you a verification code.',
+      name: 'forgotPasswordInstructions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enviar`
+  String get sendTitle {
+    return Intl.message(
+      'Enviar',
+      name: 'sendTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Field {entityErrorMessage} is not valid`
   String entityErrorMessage(Object placeholders, Object entityErrorMessage) {
     return Intl.message(

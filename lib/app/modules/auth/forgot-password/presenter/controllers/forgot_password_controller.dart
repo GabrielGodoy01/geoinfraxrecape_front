@@ -2,7 +2,7 @@ import 'package:mobx/mobx.dart';
 
 import '../../../../../../shared/domain/usecases/forgot_password_usecase.dart';
 import '../../../../../../shared/helpers/utils/validation_helper.dart';
-import '../ui/forgot_password_state.dart';
+import '../states/forgot_password_state.dart';
 
 part 'forgot_password_controller.g.dart';
 

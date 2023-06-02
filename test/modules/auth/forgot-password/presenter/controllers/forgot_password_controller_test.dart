@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:clean_flutter_template/app/modules/auth/forgot-password/presenter/controllers/forgot_password_controller.dart';
-import 'package:clean_flutter_template/app/modules/auth/forgot-password/presenter/ui/forgot_password_state.dart';
+import 'package:clean_flutter_template/app/modules/auth/forgot-password/presenter/states/forgot_password_state.dart';
 import 'package:clean_flutter_template/generated/l10n.dart';
 import 'package:clean_flutter_template/shared/domain/usecases/forgot_password_usecase.dart';
 import 'package:clean_flutter_template/shared/helpers/errors/auth_errors.dart';

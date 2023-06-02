@@ -85,7 +85,9 @@ class LoginPage extends StatelessWidget {
                     ),
                     AuthButtonWidget(
                         title: S.of(context).forgotPasswordTitle,
-                        onPressed: () {}),
+                        onPressed: () {
+                          Modular.to.pushNamed('/forgot-password');
+                        }),
                   ],
                 ),
               ),
