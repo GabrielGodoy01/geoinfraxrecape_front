@@ -216,6 +216,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Invalid code.`
+  String get invalidCodeAlert {
+    return Intl.message(
+      'Invalid code.',
+      name: 'invalidCodeAlert',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Passwords must be the same.`
+  String get invalidEqualPasswordAlert {
+    return Intl.message(
+      'Passwords must be the same.',
+      name: 'invalidEqualPasswordAlert',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

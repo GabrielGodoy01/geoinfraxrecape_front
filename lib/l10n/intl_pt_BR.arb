@@ -42,5 +42,7 @@
 
     "requiredFieldAlert": "Campo obrigatório.",
     "invalidEmailAlert": "E-mail inválido.",
-    "invalidPasswordAlert": "Senha inválida."
+    "invalidPasswordAlert": "Senha inválida.",
+    "invalidCodeAlert": "Código inválido.",
+    "invalidEqualPasswordAlert": "Senhas devem ser iguais"
 }

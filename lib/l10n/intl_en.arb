@@ -42,5 +42,7 @@
     
     "requiredFieldAlert": "Required field.",
     "invalidEmailAlert": "Invalid email.",
-    "invalidPasswordAlert": "Invalid password."
+    "invalidPasswordAlert": "Invalid password.",
+    "invalidCodeAlert": "Invalid code.",
+    "invalidEqualPasswordAlert": "Passwords must be the same."
 }

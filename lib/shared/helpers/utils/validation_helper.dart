@@ -25,4 +25,23 @@ class ValidationHelper {
     }
     return null;
   }
+
+  static String? validateConfirmPassword(
+      String? password, String? confirmPassword) {
+    if (confirmPassword!.isEmpty) {
+      return S.current.requiredFieldAlert;
+    } else if (confirmPassword != password) {
+      return S.current.invalidEqualPasswordAlert;
+    }
+    return null;
+  }
+
+  static String? validateCode(String? code) {
+    if (code!.isEmpty) {
+      return S.current.requiredFieldAlert;
+    } else if (code.length < 6) {
+      return S.current.invalidCodeAlert;
+    }
+    return null;
+  }
 }

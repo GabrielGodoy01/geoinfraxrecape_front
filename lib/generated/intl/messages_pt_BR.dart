@@ -61,8 +61,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Por favor, digite seu e-mail, nós lhe enviaremos um código de verificação."),
         "forgotPasswordTitle":
             MessageLookupByLibrary.simpleMessage("Esqueci minha senha"),
+        "invalidCodeAlert":
+            MessageLookupByLibrary.simpleMessage("Código inválido."),
         "invalidEmailAlert":
             MessageLookupByLibrary.simpleMessage("E-mail inválido."),
+        "invalidEqualPasswordAlert":
+            MessageLookupByLibrary.simpleMessage("Senhas devem ser iguais"),
         "invalidPasswordAlert":
             MessageLookupByLibrary.simpleMessage("Senha inválida."),
         "noItemsFoundErrorMessage": m2,
