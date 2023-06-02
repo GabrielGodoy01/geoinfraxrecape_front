@@ -51,4 +51,9 @@ class AuthRepositoryMock extends IAuthRepository {
   Future<Either<AuthErrors, void>> logoutUser() {
     return Future.value(const Right(null));
   }
+
+  @override
+  Future<Either<AuthErrors, void>> forgotPassword(String email) {
+    return Future.value(const Right(null));
+  }
 }

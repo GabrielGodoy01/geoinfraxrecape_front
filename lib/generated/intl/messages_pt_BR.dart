@@ -57,6 +57,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "fieldEmail": MessageLookupByLibrary.simpleMessage("Email"),
         "fieldName": MessageLookupByLibrary.simpleMessage("Nome"),
         "fieldPassword": MessageLookupByLibrary.simpleMessage("Senha"),
+        "forgotPasswordInstructions": MessageLookupByLibrary.simpleMessage(
+            "Por favor, digite seu e-mail, nós lhe enviaremos um código de verificação."),
         "forgotPasswordTitle":
             MessageLookupByLibrary.simpleMessage("Esqueci minha senha"),
         "invalidEmailAlert":
@@ -66,6 +68,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "noItemsFoundErrorMessage": m2,
         "requestErrorMessage": m3,
         "requiredFieldAlert":
-            MessageLookupByLibrary.simpleMessage("Campo obrigatório.")
+            MessageLookupByLibrary.simpleMessage("Campo obrigatório."),
+        "sendTitle": MessageLookupByLibrary.simpleMessage("Enviar")
       };
 }

@@ -85,6 +85,76 @@ class MockIAuthDatasource extends _i1.Mock implements _i3.IAuthDatasource {
         )),
       ) as _i4.Future<_i2.Either<_i5.AuthErrors, void>>);
   @override
+  _i4.Future<_i2.Either<_i5.AuthErrors, void>> postEmailConfirmation(
+    String? email,
+    String? confirmationCode,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #postEmailConfirmation,
+          [
+            email,
+            confirmationCode,
+          ],
+        ),
+        returnValue: _i4.Future<_i2.Either<_i5.AuthErrors, void>>.value(
+            _FakeEither_0<_i5.AuthErrors, void>(
+          this,
+          Invocation.method(
+            #postEmailConfirmation,
+            [
+              email,
+              confirmationCode,
+            ],
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.AuthErrors, void>>);
+  @override
+  _i4.Future<_i2.Either<_i5.AuthErrors, void>> postForgotPassword(
+          String? email) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #postForgotPassword,
+          [email],
+        ),
+        returnValue: _i4.Future<_i2.Either<_i5.AuthErrors, void>>.value(
+            _FakeEither_0<_i5.AuthErrors, void>(
+          this,
+          Invocation.method(
+            #postForgotPassword,
+            [email],
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.AuthErrors, void>>);
+  @override
+  _i4.Future<_i2.Either<_i5.AuthErrors, void>> postConfirmResetPassword(
+    String? email,
+    String? newPassword,
+    String? confirmationCode,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #postConfirmResetPassword,
+          [
+            email,
+            newPassword,
+            confirmationCode,
+          ],
+        ),
+        returnValue: _i4.Future<_i2.Either<_i5.AuthErrors, void>>.value(
+            _FakeEither_0<_i5.AuthErrors, void>(
+          this,
+          Invocation.method(
+            #postConfirmResetPassword,
+            [
+              email,
+              newPassword,
+              confirmationCode,
+            ],
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<_i5.AuthErrors, void>>);
+  @override
   _i4.Future<_i2.Either<_i5.AuthErrors, List<_i6.AuthUserAttribute>>>
       getUserAttributes() => (super.noSuchMethod(
             Invocation.method(

@@ -80,9 +80,14 @@ class LoginPage extends StatelessWidget {
                             loginController.loginWithEmail();
                           }
                         }),
+                    const SizedBox(
+                      height: 8,
+                    ),
                     AuthButtonWidget(
                         title: S.of(context).forgotPasswordTitle,
-                        onPressed: () {}),
+                        onPressed: () {
+                          Modular.to.pushNamed('/forgot-password');
+                        }),
                   ],
                 ),
               ),
