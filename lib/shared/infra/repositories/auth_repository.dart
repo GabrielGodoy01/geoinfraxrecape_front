@@ -38,4 +38,13 @@ class AuthRepository extends IAuthRepository {
     return result.fold(
         (failureResult) => result, (successResult) => Right(successResult));
   }
+
+  @override
+  Future<Either<AuthErrors, void>> changePassword(
+      String email, String newPassword, String confirmationCode) async {
+    var result = await datasource.postChangePassword(
+        email, newPassword, confirmationCode);
+    return result.fold(
+        (failureResult) => result, (successResult) => Right(successResult));
+  }
 }

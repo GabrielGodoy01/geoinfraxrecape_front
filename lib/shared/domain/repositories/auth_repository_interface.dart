@@ -7,5 +7,7 @@ abstract class IAuthRepository {
       String email, String password);
   Future<Either<AuthErrors, void>> logoutUser();
   Future<Either<AuthErrors, void>> forgotPassword(String email);
+  Future<Either<AuthErrors, void>> changePassword(
+      String email, String newPassword, String confirmationCode);
   Future<Either<AuthErrors, List<AuthUserAttribute>>> getUserAttributes();
 }

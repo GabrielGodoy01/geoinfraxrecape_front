@@ -10,7 +10,7 @@ abstract class IAuthDatasource {
   Future<Either<AuthErrors, void>> postEmailConfirmation(
       String email, String confirmationCode);
   Future<Either<AuthErrors, void>> postForgotPassword(String email);
-  Future<Either<AuthErrors, void>> postConfirmResetPassword(
+  Future<Either<AuthErrors, void>> postChangePassword(
       String email, String newPassword, String confirmationCode);
   // Future<Either<AuthErrors, void>> postResendCode(String email);
   Future<Either<AuthErrors, List<AuthUserAttribute>>> getUserAttributes();

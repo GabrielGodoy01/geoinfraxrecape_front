@@ -92,7 +92,7 @@ class AuthDatasource extends IAuthDatasource {
   }
 
   @override
-  Future<Either<AuthErrors, void>> postConfirmResetPassword(
+  Future<Either<AuthErrors, void>> postChangePassword(
       String email, String newPassword, String confirmationCode) async {
     try {
       await Amplify.Auth.confirmResetPassword(

@@ -127,14 +127,14 @@ class MockIAuthDatasource extends _i1.Mock implements _i3.IAuthDatasource {
         )),
       ) as _i4.Future<_i2.Either<_i5.AuthErrors, void>>);
   @override
-  _i4.Future<_i2.Either<_i5.AuthErrors, void>> postConfirmResetPassword(
+  _i4.Future<_i2.Either<_i5.AuthErrors, void>> postChangePassword(
     String? email,
     String? newPassword,
     String? confirmationCode,
   ) =>
       (super.noSuchMethod(
         Invocation.method(
-          #postConfirmResetPassword,
+          #postChangePassword,
           [
             email,
             newPassword,
@@ -145,7 +145,7 @@ class MockIAuthDatasource extends _i1.Mock implements _i3.IAuthDatasource {
             _FakeEither_0<_i5.AuthErrors, void>(
           this,
           Invocation.method(
-            #postConfirmResetPassword,
+            #postChangePassword,
             [
               email,
               newPassword,
