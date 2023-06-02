@@ -37,4 +37,12 @@ void main() {
       expect(result.fold((l) => l, (r) => null), isA<void>());
     });
   });
+
+  group('[TEST] - forgotPassword', () {
+    test('returns success void', () async {
+      var result =
+          await repository.forgotPassword('gabriel.godoybz@hotmail.com');
+      expect(result.fold((l) => l, (r) => null), isA<void>());
+    });
+  });
 }
