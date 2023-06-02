@@ -45,4 +45,12 @@ void main() {
       expect(result.fold((l) => l, (r) => null), isA<void>());
     });
   });
+
+  group('[TEST] - changePassword', () {
+    test('returns success void', () async {
+      var result = await repository.changePassword(
+          'gabriel.godoybz@hotmail.com', '', '');
+      expect(result.fold((l) => l, (r) => null), isA<void>());
+    });
+  });
 }

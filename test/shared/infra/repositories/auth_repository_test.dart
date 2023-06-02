@@ -115,4 +115,20 @@ void main() {
       expect(result.fold((l) => l, (r) => null), isA<AuthErrors>());
     });
   });
+
+  group('[TEST] - changePassword', () {
+    test('returns success void', () async {
+      when(datasource.postChangePassword('', '', ''))
+          .thenAnswer((realInvocation) async => const Right(null));
+      var result = await repository.changePassword('', '', '');
+      expect(result.fold((l) => l, (r) => null), isA<void>());
+    });
+
+    test('returns error', () async {
+      when(datasource.postChangePassword('', '', ''))
+          .thenAnswer((realInvocation) async => Left(AuthErrors(message: '')));
+      var result = await repository.changePassword('', '', '');
+      expect(result.fold((l) => l, (r) => null), isA<AuthErrors>());
+    });
+  });
 }
