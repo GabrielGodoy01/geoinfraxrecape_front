@@ -67,6 +67,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "requestErrorMessage": m3,
         "requiredFieldAlert":
             MessageLookupByLibrary.simpleMessage("Required field."),
-        "sendTitle": MessageLookupByLibrary.simpleMessage("Enviar")
+        "sendTitle": MessageLookupByLibrary.simpleMessage("Send")
       };
 }

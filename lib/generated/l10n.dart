@@ -110,10 +110,10 @@ class S {
     );
   }
 
-  /// `Enviar`
+  /// `Send`
   String get sendTitle {
     return Intl.message(
-      'Enviar',
+      'Send',
       name: 'sendTitle',
       desc: '',
       args: [],
