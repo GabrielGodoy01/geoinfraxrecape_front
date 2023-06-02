@@ -37,6 +37,85 @@ class AuthDatasource extends IAuthDatasource {
     }
   }
 
+  // @override
+  // Future<Either<AuthErrors, User>> postRegisterUser(UserModel user) async {
+  //   Map<CognitoUserAttributeKey, String> userAttributes = {
+  //     CognitoUserAttributeKey.email: user.email,
+  //     CognitoUserAttributeKey.name: user.fullName,
+  //     const CognitoUserAttributeKey.custom('cpf'): user.cpf,
+  //     CognitoUserAttributeKey.updatedAt:
+  //         DateTime.now().millisecondsSinceEpoch.toString(),
+  //     const CognitoUserAttributeKey.custom('appNotifications'):
+  //         user.appNotifications.toString(),
+  //     const CognitoUserAttributeKey.custom('emailNotifications'):
+  //         user.emailNotifications.toString(),
+  //     const CognitoUserAttributeKey.custom('acceptTerms'):
+  //         user.acceptTerms.toString(),
+  //     const CognitoUserAttributeKey.custom('role'): 'user'
+  //   };
+  //   try {
+  //     await Amplify.Auth.signUp(
+  //         username: user.email,
+  //         password: user.password,
+  //         options: SignUpOptions(userAttributes: userAttributes));
+
+  //     return right(user);
+  //   } catch (e) {
+  //     return left(_handleError(e));
+  //   }
+  // }
+
+  @override
+  Future<Either<AuthErrors, void>> postEmailConfirmation(
+      String email, String confirmationCode) async {
+    try {
+      await Amplify.Auth.confirmSignUp(
+        username: email,
+        confirmationCode: confirmationCode,
+      );
+      return right(null);
+    } catch (e) {
+      return left(_handleError(e));
+    }
+  }
+
+  @override
+  Future<Either<AuthErrors, void>> postForgotPassword(String email) async {
+    try {
+      await Amplify.Auth.resetPassword(
+        username: email,
+      );
+      return right(null);
+    } catch (e) {
+      return left(_handleError(e));
+    }
+  }
+
+  @override
+  Future<Either<AuthErrors, void>> postConfirmResetPassword(
+      String email, String newPassword, String confirmationCode) async {
+    try {
+      await Amplify.Auth.confirmResetPassword(
+        username: email,
+        newPassword: newPassword,
+        confirmationCode: confirmationCode,
+      );
+      return const Right(null);
+    } catch (e) {
+      return left(_handleError(e));
+    }
+  }
+
+  // @override
+  // Future<Either<AuthErrors, void>> postResendCode(String email) async {
+  //   try {
+  //     await Amplify.Auth.resendSignUpCode(username: email);
+  //     return const Right(null);
+  //   } catch (e) {
+  //     return left(_handleError(e));
+  //   }
+  // }
+
   @override
   Future<Either<AuthErrors, List<AuthUserAttribute>>>
       getUserAttributes() async {
