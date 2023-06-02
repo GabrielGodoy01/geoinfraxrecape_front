@@ -12,7 +12,7 @@ import 'login/presenter/controller/login_controller.dart';
 class AuthModule extends Module {
   @override
   List<Bind> get binds => [
-        Bind<LoginController>((i) => LoginController(i(), i())),
+        Bind<LoginController>((i) => LoginController(i())),
         Bind<ILoginUserUsecase>((i) => LoginUserUsecase(repository: i())),
         Bind<IGetUserAttributesUsecase>(
             (i) => GetUserAttributesUsecase(repository: i())),

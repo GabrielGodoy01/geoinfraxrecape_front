@@ -80,6 +80,9 @@ class LoginPage extends StatelessWidget {
                             loginController.loginWithEmail();
                           }
                         }),
+                    AuthButtonWidget(
+                        title: S.of(context).forgotPasswordTitle,
+                        onPressed: () {}),
                   ],
                 ),
               ),
@@ -90,7 +93,7 @@ class LoginPage extends StatelessWidget {
 
   Widget _buildError(AuthErrors error) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      padding: const EdgeInsets.symmetric(vertical: 16),
       child: Center(
         child: Container(
             decoration: BoxDecoration(
@@ -101,7 +104,8 @@ class LoginPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
               child: Text(
                 S.current.requestErrorMessage('', error.message),
-                style: AppTextStyles.bodyMedium,
+                style:
+                    AppTextStyles.bodyMedium.copyWith(color: AppColors.white),
                 textAlign: TextAlign.center,
               ),
             )),
