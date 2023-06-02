@@ -7,7 +7,7 @@
     "enterTitle": "Enter",
     "forgotPasswordTitle": "Forgot password",
     "forgotPasswordInstructions": "Please enter your email, we will send you a verification code.",
-    "sendTitle": "Enviar",
+    "sendTitle": "Send",
 
     "entityErrorMessage": "Field {entityErrorMessage} is not valid",
     "@entityErrorMessage" : {
