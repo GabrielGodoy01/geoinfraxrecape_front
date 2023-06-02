@@ -46,7 +46,7 @@ void main() {
       GlobalWidgetsLocalizations.delegate,
     ], supportedLocales: S.delegate.supportedLocales, home: LoginPage()));
     expect(find.byType(Form), findsOneWidget);
-    expect(find.byType(AuthButtonWidget), findsOneWidget);
+    expect(find.byType(AuthButtonWidget), findsNWidgets(2));
     expect(find.byType(TextFieldCustomWidget), findsNWidgets(2));
     expect(find.byType(Image), findsOneWidget);
   });
