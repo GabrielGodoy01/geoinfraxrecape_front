@@ -74,10 +74,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Senhas devem ser iguais"),
         "invalidPasswordAlert":
             MessageLookupByLibrary.simpleMessage("Senha inválida."),
+        "loginTitle": MessageLookupByLibrary.simpleMessage("Login"),
         "noItemsFoundErrorMessage": m2,
         "requestErrorMessage": m3,
         "requiredFieldAlert":
             MessageLookupByLibrary.simpleMessage("Campo obrigatório."),
-        "sendTitle": MessageLookupByLibrary.simpleMessage("Enviar")
+        "sendTitle": MessageLookupByLibrary.simpleMessage("Enviar"),
+        "successChangePasswordTitle":
+            MessageLookupByLibrary.simpleMessage("Senha alterada com sucesso!")
       };
 }

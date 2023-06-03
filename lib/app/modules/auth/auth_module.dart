@@ -1,6 +1,7 @@
 import 'package:clean_flutter_template/app/modules/auth/change-password/presenter/ui/change_password_page.dart';
 import 'package:clean_flutter_template/app/modules/auth/forgot-password/presenter/ui/forgot_password_page.dart';
 import 'package:clean_flutter_template/app/modules/auth/login/presenter/pages/login_page.dart';
+import 'package:clean_flutter_template/app/modules/auth/success-change-password/presenter/ui/success_change_password_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../../../shared/datasource/external/http/auth_datasource.dart';
 import '../../../shared/domain/repositories/auth_repository_interface.dart';
@@ -46,6 +47,10 @@ class AuthModule extends Module {
         ChildRoute(
           '/change-password',
           child: (context, args) => ChangePasswordPage(email: args.data),
+        ),
+        ChildRoute(
+          '/success-change-password',
+          child: (context, args) => const SuccessChangePasswordPage(),
         ),
       ];
 }

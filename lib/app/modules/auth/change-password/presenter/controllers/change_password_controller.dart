@@ -1,3 +1,4 @@
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../../../../../shared/domain/usecases/change_password_usecase.dart';
@@ -68,7 +69,8 @@ abstract class ChangePasswordControllerBase with Store {
     var result = await _changePassword(email, code, newPassword);
     state = result.fold((failure) {
       return ChangePasswordErrorState(error: failure);
-    }, (isConfirmed) {
+    }, (changed) {
+      Modular.to.navigate('/success-change-password');
       return const ChangePasswordSuccessState();
     });
   }

@@ -8,9 +8,11 @@
 
     "enterTitle": "Enter",
     "forgotPasswordTitle": "Forgot password",
+    "loginTitle": "Login",
     "forgotPasswordInstructions": "Please enter your email, we will send you a verification code.",
     "sendTitle": "Send",
     "changePasswordInstructions": "Please enter the verification code and new password.",
+    "successChangePasswordTitle": "Password was changed successfully!", 
 
     "entityErrorMessage": "Field {entityErrorMessage} is not valid",
     "@entityErrorMessage" : {

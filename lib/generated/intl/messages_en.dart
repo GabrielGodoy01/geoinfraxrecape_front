@@ -72,10 +72,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Passwords must be the same."),
         "invalidPasswordAlert":
             MessageLookupByLibrary.simpleMessage("Invalid password."),
+        "loginTitle": MessageLookupByLibrary.simpleMessage("Login"),
         "noItemsFoundErrorMessage": m2,
         "requestErrorMessage": m3,
         "requiredFieldAlert":
             MessageLookupByLibrary.simpleMessage("Required field."),
-        "sendTitle": MessageLookupByLibrary.simpleMessage("Send")
+        "sendTitle": MessageLookupByLibrary.simpleMessage("Send"),
+        "successChangePasswordTitle": MessageLookupByLibrary.simpleMessage(
+            "Password was changed successfully!")
       };
 }

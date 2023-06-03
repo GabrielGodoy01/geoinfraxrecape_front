@@ -120,6 +120,16 @@ class S {
     );
   }
 
+  /// `Login`
+  String get loginTitle {
+    return Intl.message(
+      'Login',
+      name: 'loginTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Please enter your email, we will send you a verification code.`
   String get forgotPasswordInstructions {
     return Intl.message(
@@ -145,6 +155,16 @@ class S {
     return Intl.message(
       'Please enter the verification code and new password.',
       name: 'changePasswordInstructions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password was changed successfully!`
+  String get successChangePasswordTitle {
+    return Intl.message(
+      'Password was changed successfully!',
+      name: 'successChangePasswordTitle',
       desc: '',
       args: [],
     );
