@@ -1,6 +1,5 @@
 import 'package:mobx/mobx.dart';
-
-import '../../../../../../shared/domain/usecases/change_password_usecase.dart';
+import '../../../../../../shared/domain/usecases/login_with_new_password_usecase.dart';
 import '../../../../../../shared/helpers/utils/validation_helper.dart';
 import '../state/confirm_new_password_state.dart';
 
@@ -10,9 +9,9 @@ class ConfirmNewPasswordController = ConfirmNewPasswordControllerBase
     with _$ConfirmNewPasswordController;
 
 abstract class ConfirmNewPasswordControllerBase with Store {
-  final IChangePasswordUsecase _changePassword;
+  final ILoginWithNewPasswordUsecase _loginWithNewPassword;
 
-  ConfirmNewPasswordControllerBase(this._changePassword);
+  ConfirmNewPasswordControllerBase(this._loginWithNewPassword);
 
   @observable
   ConfirmNewPasswordState state = ConfirmNewPasswordInitialState();
@@ -27,10 +26,10 @@ abstract class ConfirmNewPasswordControllerBase with Store {
   void changePasswordVisibility() => isPasswordVisible = !isPasswordVisible;
 
   @observable
-  String password = '';
+  String newPassword = '';
 
   @action
-  void setPassword(String value) => password = value;
+  void setPassword(String value) => newPassword = value;
 
   @action
   String? validatePassword(String? value) {
@@ -38,13 +37,17 @@ abstract class ConfirmNewPasswordControllerBase with Store {
   }
 
   @action
-  Future<void> changePassword(String email) async {
+  Future<void> loginWithNewPassword(String email, String password) async {
     state = ConfirmNewPasswordLoadingState();
-    var result = await _changePassword(email, 'code', 'newPassword');
+    var result = await _loginWithNewPassword(email, password, newPassword);
     state = result.fold((failure) {
       return ConfirmNewPasswordErrorState(error: failure);
     }, (changed) {
       return const ConfirmNewPasswordSuccessState();
     });
+    if (state is ConfirmNewPasswordSuccessState) {
+      // ignore: avoid_print
+      print('consegui trocar a senha');
+    }
   }
 }

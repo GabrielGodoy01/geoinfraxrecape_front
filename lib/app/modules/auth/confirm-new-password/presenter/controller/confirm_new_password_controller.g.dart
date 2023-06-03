@@ -43,29 +43,30 @@ mixin _$ConfirmNewPasswordController
     });
   }
 
-  late final _$passwordAtom =
-      Atom(name: 'ConfirmNewPasswordControllerBase.password', context: context);
+  late final _$newPasswordAtom = Atom(
+      name: 'ConfirmNewPasswordControllerBase.newPassword', context: context);
 
   @override
-  String get password {
-    _$passwordAtom.reportRead();
-    return super.password;
+  String get newPassword {
+    _$newPasswordAtom.reportRead();
+    return super.newPassword;
   }
 
   @override
-  set password(String value) {
-    _$passwordAtom.reportWrite(value, super.password, () {
-      super.password = value;
+  set newPassword(String value) {
+    _$newPasswordAtom.reportWrite(value, super.newPassword, () {
+      super.newPassword = value;
     });
   }
 
-  late final _$changePasswordAsyncAction = AsyncAction(
-      'ConfirmNewPasswordControllerBase.changePassword',
+  late final _$loginWithNewPasswordAsyncAction = AsyncAction(
+      'ConfirmNewPasswordControllerBase.loginWithNewPassword',
       context: context);
 
   @override
-  Future<void> changePassword(String email) {
-    return _$changePasswordAsyncAction.run(() => super.changePassword(email));
+  Future<void> loginWithNewPassword(String email, String password) {
+    return _$loginWithNewPasswordAsyncAction
+        .run(() => super.loginWithNewPassword(email, password));
   }
 
   late final _$ConfirmNewPasswordControllerBaseActionController =
@@ -126,7 +127,7 @@ mixin _$ConfirmNewPasswordController
     return '''
 state: ${state},
 isPasswordVisible: ${isPasswordVisible},
-password: ${password}
+newPassword: ${newPassword}
     ''';
   }
 }

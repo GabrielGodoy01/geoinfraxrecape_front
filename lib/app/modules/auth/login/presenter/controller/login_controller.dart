@@ -58,10 +58,10 @@ abstract class LoginControllerBase with Store {
     loginResult.fold((failure) {
       return changeState(LoginErrorState(failure));
     }, (authSession) async {
-      authSession.nextStep.signInStep ==
+      changeState(authSession.nextStep.signInStep ==
               AuthSignInStep.confirmSignInWithNewPassword
           ? LoginNewPasswordState()
-          : const LoginSuccessState();
+          : const LoginSuccessState());
     });
     if (state is LoginNewPasswordState) {
       Modular.to.navigate('/confirm-new-password', arguments: {

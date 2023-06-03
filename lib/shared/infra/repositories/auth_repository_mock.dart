@@ -42,4 +42,13 @@ class AuthRepositoryMock extends IAuthRepository {
       String email, String newPassword, String confirmationCode) {
     return Future.value(const Right(null));
   }
+
+  @override
+  Future<Either<AuthErrors, SignInResult>> loginWithNewPassword(
+      String email, String password, String newPassword) {
+    var signInResult = const SignInResult(
+        isSignedIn: true,
+        nextStep: AuthNextSignInStep(signInStep: AuthSignInStep.done));
+    return Future.value(Right(signInResult));
+  }
 }

@@ -1,10 +1,6 @@
 // ignore_for_file: depend_on_referenced_packages
 
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
-import 'package:amplify_flutter/amplify_flutter.dart';
-import 'package:amplify_auth_cognito_dart/src/jwt/src/header.dart';
-import 'package:amplify_auth_cognito_dart/src/jwt/src/alg.dart';
-import 'package:amplify_auth_cognito_dart/src/jwt/src/claims.dart';
 import 'package:clean_flutter_template/app/app_module.dart';
 import 'package:clean_flutter_template/app/modules/auth/auth_module.dart';
 import 'package:clean_flutter_template/shared/domain/repositories/auth_repository_interface.dart';
@@ -27,12 +23,9 @@ void main() {
   String email = '';
   String password = '';
 
-  JsonWebToken mockJsonWebToken = const JsonWebToken(
-      header: JsonWebHeader(
-        algorithm: Algorithm.ecdsaSha256,
-      ),
-      claims: JsonWebClaims(),
-      signature: []);
+  SignInResult signInResult = const SignInResult(
+      isSignedIn: true,
+      nextStep: AuthNextSignInStep(signInStep: AuthSignInStep.done));
 
   setUp(() {
     repository = AuthRepository(datasource: datasource);
@@ -40,17 +33,8 @@ void main() {
 
   group('[TEST] - loginUser', () {
     test('returns success CognitoAuthSession', () async {
-      when(datasource.postLoginUser(email, password)).thenAnswer(
-          (realInvocation) async => Right(CognitoAuthSession(
-              isSignedIn: true,
-              credentialsResult:
-                  const AWSResult.success(AWSCredentials('123', '123', '123')),
-              identityIdResult: const AWSResult.success('123'),
-              userSubResult: const AWSResult.success('123'),
-              userPoolTokensResult: AWSResult.success(CognitoUserPoolTokens(
-                  accessToken: mockJsonWebToken,
-                  idToken: mockJsonWebToken,
-                  refreshToken: '123')))));
+      when(datasource.postLoginUser(email, password))
+          .thenAnswer((realInvocation) async => Right(signInResult));
       var result = await repository.loginUser(email, password);
       expect(result.fold(id, id), isA<CognitoAuthSession>());
     });

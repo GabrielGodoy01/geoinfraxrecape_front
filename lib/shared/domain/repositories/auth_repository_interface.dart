@@ -5,6 +5,8 @@ import '../../helpers/errors/auth_errors.dart';
 abstract class IAuthRepository {
   Future<Either<AuthErrors, SignInResult>> loginUser(
       String email, String password);
+  Future<Either<AuthErrors, SignInResult>> loginWithNewPassword(
+      String email, String password, String newPassword);
   Future<Either<AuthErrors, void>> logoutUser();
   Future<Either<AuthErrors, void>> forgotPassword(String email);
   Future<Either<AuthErrors, void>> changePassword(

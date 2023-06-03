@@ -69,6 +69,36 @@ class MockIAuthDatasource extends _i1.Mock implements _i3.IAuthDatasource {
         )),
       ) as _i4.Future<_i2.Either<_i5.AuthErrors, _i6.SignInResult>>);
   @override
+  _i4.Future<_i2.Either<_i5.AuthErrors, _i6.SignInResult>>
+      postLoginWithNewPassword(
+    String? email,
+    String? password,
+    String? newPassword,
+  ) =>
+          (super.noSuchMethod(
+            Invocation.method(
+              #postLoginWithNewPassword,
+              [
+                email,
+                password,
+                newPassword,
+              ],
+            ),
+            returnValue:
+                _i4.Future<_i2.Either<_i5.AuthErrors, _i6.SignInResult>>.value(
+                    _FakeEither_0<_i5.AuthErrors, _i6.SignInResult>(
+              this,
+              Invocation.method(
+                #postLoginWithNewPassword,
+                [
+                  email,
+                  password,
+                  newPassword,
+                ],
+              ),
+            )),
+          ) as _i4.Future<_i2.Either<_i5.AuthErrors, _i6.SignInResult>>);
+  @override
   _i4.Future<_i2.Either<_i5.AuthErrors, void>> postLogout() =>
       (super.noSuchMethod(
         Invocation.method(

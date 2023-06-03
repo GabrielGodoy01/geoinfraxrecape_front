@@ -15,7 +15,6 @@ class AuthDatasource extends IAuthDatasource {
         username: email,
         password: password,
       );
-      print('datasorce: $res');
       return right(res);
     } catch (e) {
       return left(_handleError(e));
@@ -159,5 +158,23 @@ class AuthDatasource extends IAuthDatasource {
     return AuthErrors(
       message: S.current.authErrorsSchema('other'),
     );
+  }
+
+  @override
+  Future<Either<AuthErrors, SignInResult>> postLoginWithNewPassword(
+      String email, String password, String newPassword) async {
+    try {
+      late SignInResult res;
+      await Amplify.Auth.signOut();
+      await Amplify.Auth.signIn(
+        username: email,
+        password: password,
+      ).whenComplete(() async {
+        res = await Amplify.Auth.confirmSignIn(confirmationValue: newPassword);
+      });
+      return right(res);
+    } catch (e) {
+      return left(_handleError(e));
+    }
   }
 }
