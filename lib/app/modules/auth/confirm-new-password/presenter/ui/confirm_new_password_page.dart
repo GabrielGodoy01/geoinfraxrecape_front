@@ -21,64 +21,65 @@ class ConfirmNewPasswordPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var newPasswordController = Modular.get<ConfirmNewPasswordController>();
     return Scaffold(
+        backgroundColor: AppColors.black,
         body: Center(
-      child: SizedBox(
-        width: ScreenHelper.width(context) < ScreenHelper.breakpointTablet
-            ? ScreenHelper.width(context)
-            : ScreenHelper.breakpointTablet,
-        child: Observer(builder: (_) {
-          return Form(
-              key: formKey,
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: ScreenHelper.width(context) <
-                              ScreenHelper.breakpointTablet
-                          ? ScreenHelper.width(context)
-                          : 500,
-                      height: ScreenHelper.width(context) <
-                              ScreenHelper.breakpointTablet
-                          ? 180
-                          : 280,
-                      child: const Image(
-                          image: AssetImage('assets/images/gaia_logo.png'),
-                          fit: BoxFit.fill),
-                    ),
-                    ConstrainedBox(
-                      constraints: const BoxConstraints(maxWidth: 400),
-                      child: Text(
-                        S.of(context).changePasswordInstructions,
-                        textAlign: TextAlign.justify,
-                        style: AppTextStyles.displayMedium.copyWith(
-                            color: AppColors.white,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ),
-                    TextFieldCustomWidget(
-                      hintText: S.current.fieldPassword,
-                      onChanged: newPasswordController.setPassword,
-                      validator: newPasswordController.validatePassword,
-                      isPassword: true,
-                      showText: newPasswordController.isPasswordVisible,
-                      onToggleVisibilityPwd:
-                          newPasswordController.changePasswordVisibility,
-                    ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    AuthButtonWidget(
-                        title: S.of(context).sendTitle,
-                        onPressed: () {
-                          if (formKey.currentState!.validate()) {
-                            newPasswordController.loginWithNewPassword(
-                                email, password);
-                          }
-                        }),
-                  ]));
-        }),
-      ),
-    ));
+          child: SizedBox(
+            width: ScreenHelper.width(context) < ScreenHelper.breakpointTablet
+                ? ScreenHelper.width(context)
+                : ScreenHelper.breakpointTablet,
+            child: Observer(builder: (_) {
+              return Form(
+                  key: formKey,
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: ScreenHelper.width(context) <
+                                  ScreenHelper.breakpointTablet
+                              ? ScreenHelper.width(context)
+                              : 500,
+                          height: ScreenHelper.width(context) <
+                                  ScreenHelper.breakpointTablet
+                              ? 180
+                              : 280,
+                          child: const Image(
+                              image: AssetImage('assets/images/gaia_logo.png'),
+                              fit: BoxFit.fill),
+                        ),
+                        ConstrainedBox(
+                          constraints: const BoxConstraints(maxWidth: 400),
+                          child: Text(
+                            S.of(context).changePasswordInstructions,
+                            textAlign: TextAlign.justify,
+                            style: AppTextStyles.displayMedium.copyWith(
+                                color: AppColors.white,
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ),
+                        TextFieldCustomWidget(
+                          hintText: S.current.fieldPassword,
+                          onChanged: newPasswordController.setPassword,
+                          validator: newPasswordController.validatePassword,
+                          isPassword: true,
+                          showText: newPasswordController.isPasswordVisible,
+                          onToggleVisibilityPwd:
+                              newPasswordController.changePasswordVisibility,
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        AuthButtonWidget(
+                            title: S.of(context).sendTitle,
+                            onPressed: () {
+                              if (formKey.currentState!.validate()) {
+                                newPasswordController.loginWithNewPassword(
+                                    email, password);
+                              }
+                            }),
+                      ]));
+            }),
+          ),
+        ));
   }
 }

@@ -68,7 +68,7 @@ abstract class LoginControllerBase with Store {
         'email': email,
         'password': password,
       });
-    } else {
+    } else if (state is LoginSuccessState) {
       Modular.to.navigate('/home');
     }
   }
