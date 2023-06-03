@@ -68,7 +68,7 @@ class LoginPage extends StatelessWidget {
                       isPassword: true,
                       showText: loginController.isPasswordVisible,
                       onToggleVisibilityPwd:
-                          loginController.changePasswordState,
+                          loginController.changePasswordVisibility,
                     ),
                     const SizedBox(
                       height: 32,

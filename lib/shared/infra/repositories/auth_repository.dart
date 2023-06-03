@@ -10,7 +10,7 @@ class AuthRepository extends IAuthRepository {
   AuthRepository({required this.datasource});
 
   @override
-  Future<Either<AuthErrors, CognitoAuthSession>> loginUser(
+  Future<Either<AuthErrors, SignInResult>> loginUser(
       String email, String password) async {
     var result = await datasource.postLoginUser(email, password);
     return result.fold(
@@ -35,6 +35,24 @@ class AuthRepository extends IAuthRepository {
   @override
   Future<Either<AuthErrors, void>> forgotPassword(String email) async {
     var result = await datasource.postForgotPassword(email);
+    return result.fold(
+        (failureResult) => result, (successResult) => Right(successResult));
+  }
+
+  @override
+  Future<Either<AuthErrors, void>> changePassword(
+      String email, String newPassword, String confirmationCode) async {
+    var result = await datasource.postChangePassword(
+        email, newPassword, confirmationCode);
+    return result.fold(
+        (failureResult) => result, (successResult) => Right(successResult));
+  }
+
+  @override
+  Future<Either<AuthErrors, SignInResult>> loginWithNewPassword(
+      String email, String password, String newPassword) async {
+    var result =
+        await datasource.postLoginWithNewPassword(email, password, newPassword);
     return result.fold(
         (failureResult) => result, (successResult) => Right(successResult));
   }

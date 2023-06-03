@@ -1,12 +1,6 @@
 // ignore_for_file: depend_on_referenced_packages
 
-import 'dart:collection';
-
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
-import 'package:amplify_flutter/amplify_flutter.dart';
-import 'package:amplify_auth_cognito_dart/src/jwt/src/header.dart';
-import 'package:amplify_auth_cognito_dart/src/jwt/src/alg.dart';
-import 'package:amplify_auth_cognito_dart/src/jwt/src/claims.dart';
 import 'package:clean_flutter_template/app/modules/auth/login/presenter/controller/login_controller.dart';
 import 'package:clean_flutter_template/app/modules/auth/login/presenter/states/login_state.dart';
 import 'package:clean_flutter_template/generated/l10n.dart';
@@ -37,38 +31,33 @@ void main() {
     await S.load(const Locale.fromSubtags(languageCode: 'en'));
   });
 
-  JsonWebToken mockJsonWebToken = const JsonWebToken(
-      header: JsonWebHeader(
-        algorithm: Algorithm.ecdsaSha256,
-      ),
-      claims: JsonWebClaims(),
-      signature: []);
+  SignInResult signInResult = const SignInResult(
+      isSignedIn: true,
+      nextStep: AuthNextSignInStep(signInStep: AuthSignInStep.done));
 
-  LinkedHashMap map = LinkedHashMap.of(
-      {'refreshToken': '123', 'accessToken': '123', 'idToken': '123'});
+  SignInResult signInResultNewPassword = const SignInResult(
+      isSignedIn: true,
+      nextStep: AuthNextSignInStep(
+          signInStep: AuthSignInStep.confirmSignInWithNewPassword));
 
   AuthUserAttribute user = const AuthUserAttribute(
       userAttributeKey: CognitoUserAttributeKey.custom('custom:role'),
       value: 'student');
 
-  CognitoAuthSession cognitoAuthSession = CognitoAuthSession(
-      isSignedIn: true,
-      credentialsResult:
-          const AWSResult.success(AWSCredentials('123', '123', '123')),
-      identityIdResult: const AWSResult.success('123'),
-      userSubResult: const AWSResult.success('123'),
-      userPoolTokensResult: AWSResult.success(CognitoUserPoolTokens(
-          accessToken: mockJsonWebToken,
-          idToken: mockJsonWebToken,
-          refreshToken: map['refreshToken'])));
-
   group('[TEST] - loginWithEmail', () {
     test('must return LoginSuccessState', () async {
-      when(usecase.call('', ''))
-          .thenAnswer((_) async => Right(cognitoAuthSession));
+      when(usecase.call('', '')).thenAnswer((_) async => Right(signInResult));
       when(getUserAttributes.call()).thenAnswer((_) async => Right([user]));
       await controller.loginWithEmail();
       expect(controller.state, isA<LoginSuccessState>());
+    });
+
+    test('must return LoginNewPasswordState', () async {
+      when(usecase.call('', ''))
+          .thenAnswer((_) async => Right(signInResultNewPassword));
+      when(getUserAttributes.call()).thenAnswer((_) async => Right([user]));
+      await controller.loginWithEmail();
+      expect(controller.state, isA<LoginNewPasswordState>());
     });
 
     test('must return LoginErrorState', () async {
@@ -92,13 +81,12 @@ void main() {
     });
 
     test('changeState', () {
-      controller
-          .changeState(LoginSuccessState(authSession: cognitoAuthSession));
+      controller.changeState(const LoginSuccessState());
       expect(controller.state, isA<LoginSuccessState>());
     });
 
     test('changePasswordState', () {
-      controller.changePasswordState();
+      controller.changePasswordVisibility();
       expect(controller.isPasswordVisible, false);
     });
   });

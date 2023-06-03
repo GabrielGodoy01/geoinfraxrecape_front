@@ -18,9 +18,9 @@ void main() {
   });
 
   group('[TEST] - loginUser', () {
-    test('returns success CognitoAuthSession', () async {
+    test('returns success SignInResult', () async {
       var result = await repository.loginUser(email, password);
-      expect(result.fold(id, id), isA<CognitoAuthSession>());
+      expect(result.fold(id, id), isA<SignInResult>());
     });
   });
 
@@ -42,6 +42,14 @@ void main() {
     test('returns success void', () async {
       var result =
           await repository.forgotPassword('gabriel.godoybz@hotmail.com');
+      expect(result.fold((l) => l, (r) => null), isA<void>());
+    });
+  });
+
+  group('[TEST] - changePassword', () {
+    test('returns success void', () async {
+      var result = await repository.changePassword(
+          'gabriel.godoybz@hotmail.com', '', '');
       expect(result.fold((l) => l, (r) => null), isA<void>());
     });
   });

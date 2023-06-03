@@ -48,10 +48,15 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "authErrorsSchema": m0,
+        "changePasswordInstructions": MessageLookupByLibrary.simpleMessage(
+            "Please enter the verification code and new password."),
         "emptyListErrorMessage": MessageLookupByLibrary.simpleMessage(
             "List is empty, no items found for this request"),
         "enterTitle": MessageLookupByLibrary.simpleMessage("Enter"),
         "entityErrorMessage": m1,
+        "fieldCode": MessageLookupByLibrary.simpleMessage("Code"),
+        "fieldConfirmPassword":
+            MessageLookupByLibrary.simpleMessage("Confirm Password"),
         "fieldEmail": MessageLookupByLibrary.simpleMessage("Email"),
         "fieldName": MessageLookupByLibrary.simpleMessage("Name"),
         "fieldPassword": MessageLookupByLibrary.simpleMessage("Password"),
@@ -59,14 +64,24 @@ class MessageLookup extends MessageLookupByLibrary {
             "Please enter your email, we will send you a verification code."),
         "forgotPasswordTitle":
             MessageLookupByLibrary.simpleMessage("Forgot password"),
+        "invalidCodeAlert":
+            MessageLookupByLibrary.simpleMessage("Invalid code."),
         "invalidEmailAlert":
             MessageLookupByLibrary.simpleMessage("Invalid email."),
+        "invalidEqualPasswordAlert":
+            MessageLookupByLibrary.simpleMessage("Passwords must be the same."),
         "invalidPasswordAlert":
             MessageLookupByLibrary.simpleMessage("Invalid password."),
+        "loginTitle": MessageLookupByLibrary.simpleMessage("Login"),
+        "loginWithNewPasswordInstructions":
+            MessageLookupByLibrary.simpleMessage(
+                "Please enter your new password"),
         "noItemsFoundErrorMessage": m2,
         "requestErrorMessage": m3,
         "requiredFieldAlert":
             MessageLookupByLibrary.simpleMessage("Required field."),
-        "sendTitle": MessageLookupByLibrary.simpleMessage("Send")
+        "sendTitle": MessageLookupByLibrary.simpleMessage("Send"),
+        "successChangePasswordTitle": MessageLookupByLibrary.simpleMessage(
+            "Password was changed successfully!")
       };
 }

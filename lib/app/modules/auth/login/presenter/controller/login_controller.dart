@@ -1,3 +1,5 @@
+import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
+import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 import '../../../../../../shared/domain/usecases/login_user_usecase.dart';
@@ -25,7 +27,7 @@ abstract class LoginControllerBase with Store {
   bool isPasswordVisible = true;
 
   @action
-  void changePasswordState() => isPasswordVisible = !isPasswordVisible;
+  void changePasswordVisibility() => isPasswordVisible = !isPasswordVisible;
 
   @observable
   String email = '';
@@ -53,32 +55,21 @@ abstract class LoginControllerBase with Store {
   Future<void> loginWithEmail() async {
     changeState(LoginLoadingState());
     var loginResult = await _login(email, password);
-    // var userAttributes = await _getUserAttributes();
-    // userAttributes.fold((failure) => changeState(LoginErrorState(failure)),
-    //     (attributes) {
-    //   attributes
-    //       .firstWhere((element) =>
-    //           element.userAttributeKey.toString() ==
-    //           'CognitoUserAttributeKey "custom:role"')
-    //       .value;
-    // });
     loginResult.fold((failure) {
       return changeState(LoginErrorState(failure));
     }, (authSession) async {
-      return changeState(LoginSuccessState(authSession: authSession));
+      changeState(authSession.nextStep.signInStep ==
+              AuthSignInStep.confirmSignInWithNewPassword
+          ? LoginNewPasswordState()
+          : const LoginSuccessState());
     });
-    if (state is LoginSuccessState) {
+    if (state is LoginNewPasswordState) {
+      Modular.to.navigate('/confirm-new-password', arguments: {
+        'email': email,
+        'password': password,
+      });
+    } else if (state is LoginSuccessState) {
       Modular.to.navigate('/home');
-      // var successState = state as LoginSuccessState;
-      // await storage.saveAccessToken(successState
-      //     .authSession.userPoolTokensResult.value.accessToken
-      //     .toString());
-      // await storage.saveRefreshToken(successState
-      //     .authSession.userPoolTokensResult.value.refreshToken
-      //     .toString());
-      // await storage.saveIdToken(successState
-      //     .authSession.userPoolTokensResult.value.idToken
-      //     .toString());
     }
   }
 }

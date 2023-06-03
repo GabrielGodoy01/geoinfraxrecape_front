@@ -96,11 +96,11 @@ mixin _$LoginController on LoginControllerBase, Store {
   }
 
   @override
-  void changePasswordState() {
+  void changePasswordVisibility() {
     final _$actionInfo = _$LoginControllerBaseActionController.startAction(
-        name: 'LoginControllerBase.changePasswordState');
+        name: 'LoginControllerBase.changePasswordVisibility');
     try {
-      return super.changePasswordState();
+      return super.changePasswordVisibility();
     } finally {
       _$LoginControllerBaseActionController.endAction(_$actionInfo);
     }

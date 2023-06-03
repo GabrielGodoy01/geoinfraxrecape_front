@@ -1,3 +1,4 @@
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../../../../../shared/domain/usecases/forgot_password_usecase.dart';
@@ -38,6 +39,7 @@ abstract class ForgotPasswordControllerBase with Store {
     changeState(result.fold((failure) {
       return ForgotPasswordErrorState(failure);
     }, (isLogged) {
+      Modular.to.navigate('/change-password', arguments: email);
       return const ForgotPasswordSuccessState();
     }));
   }

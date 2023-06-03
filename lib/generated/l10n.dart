@@ -80,6 +80,26 @@ class S {
     );
   }
 
+  /// `Confirm Password`
+  String get fieldConfirmPassword {
+    return Intl.message(
+      'Confirm Password',
+      name: 'fieldConfirmPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Code`
+  String get fieldCode {
+    return Intl.message(
+      'Code',
+      name: 'fieldCode',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Enter`
   String get enterTitle {
     return Intl.message(
@@ -100,6 +120,16 @@ class S {
     );
   }
 
+  /// `Login`
+  String get loginTitle {
+    return Intl.message(
+      'Login',
+      name: 'loginTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Please enter your email, we will send you a verification code.`
   String get forgotPasswordInstructions {
     return Intl.message(
@@ -115,6 +145,36 @@ class S {
     return Intl.message(
       'Send',
       name: 'sendTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter the verification code and new password.`
+  String get changePasswordInstructions {
+    return Intl.message(
+      'Please enter the verification code and new password.',
+      name: 'changePasswordInstructions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your new password`
+  String get loginWithNewPasswordInstructions {
+    return Intl.message(
+      'Please enter your new password',
+      name: 'loginWithNewPasswordInstructions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password was changed successfully!`
+  String get successChangePasswordTitle {
+    return Intl.message(
+      'Password was changed successfully!',
+      name: 'successChangePasswordTitle',
       desc: '',
       args: [],
     );
@@ -212,6 +272,26 @@ class S {
     return Intl.message(
       'Invalid password.',
       name: 'invalidPasswordAlert',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid code.`
+  String get invalidCodeAlert {
+    return Intl.message(
+      'Invalid code.',
+      name: 'invalidCodeAlert',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Passwords must be the same.`
+  String get invalidEqualPasswordAlert {
+    return Intl.message(
+      'Passwords must be the same.',
+      name: 'invalidEqualPasswordAlert',
       desc: '',
       args: [],
     );

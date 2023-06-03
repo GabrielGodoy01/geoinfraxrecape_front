@@ -34,7 +34,8 @@ void main() {
     await S.load(const Locale.fromSubtags(languageCode: 'en'));
   });
 
-  testWidgets('[TEST] - GetUserPage must show some widgets when initialize',
+  testWidgets(
+      '[TEST] - ForgotPasswordPage must show some widgets when initialize',
       (widgetTester) async {
     await widgetTester.pumpWidget(MaterialApp(
         localizationsDelegates: const [
@@ -51,7 +52,8 @@ void main() {
     expect(find.byType(Image), findsOneWidget);
   });
 
-  testWidgets('[TEST] - GetUserPage must show ErrorWidget when create user',
+  testWidgets(
+      '[TEST] - ForgotPasswordPage must show ErrorWidget when create user',
       (widgetTester) async {
     await widgetTester.pumpWidget(MaterialApp(
         localizationsDelegates: const [

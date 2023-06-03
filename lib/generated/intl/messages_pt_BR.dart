@@ -50,10 +50,15 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "authErrorsSchema": m0,
+        "changePasswordInstructions": MessageLookupByLibrary.simpleMessage(
+            "Por favor, digite seu e-mail, código de verificação e sua nova senha."),
         "emptyListErrorMessage": MessageLookupByLibrary.simpleMessage(
             "Lista vazia, itens não encontrados para essa requisição"),
         "enterTitle": MessageLookupByLibrary.simpleMessage("Entrar"),
         "entityErrorMessage": m1,
+        "fieldCode": MessageLookupByLibrary.simpleMessage("Código"),
+        "fieldConfirmPassword":
+            MessageLookupByLibrary.simpleMessage("Confirme sua senha"),
         "fieldEmail": MessageLookupByLibrary.simpleMessage("Email"),
         "fieldName": MessageLookupByLibrary.simpleMessage("Nome"),
         "fieldPassword": MessageLookupByLibrary.simpleMessage("Senha"),
@@ -61,14 +66,24 @@ class MessageLookup extends MessageLookupByLibrary {
             "Por favor, digite seu e-mail, nós lhe enviaremos um código de verificação."),
         "forgotPasswordTitle":
             MessageLookupByLibrary.simpleMessage("Esqueci minha senha"),
+        "invalidCodeAlert":
+            MessageLookupByLibrary.simpleMessage("Código inválido."),
         "invalidEmailAlert":
             MessageLookupByLibrary.simpleMessage("E-mail inválido."),
+        "invalidEqualPasswordAlert":
+            MessageLookupByLibrary.simpleMessage("Senhas devem ser iguais"),
         "invalidPasswordAlert":
             MessageLookupByLibrary.simpleMessage("Senha inválida."),
+        "loginTitle": MessageLookupByLibrary.simpleMessage("Login"),
+        "loginWithNewPasswordInstructions":
+            MessageLookupByLibrary.simpleMessage(
+                "Por favor, digite sua nova senha."),
         "noItemsFoundErrorMessage": m2,
         "requestErrorMessage": m3,
         "requiredFieldAlert":
             MessageLookupByLibrary.simpleMessage("Campo obrigatório."),
-        "sendTitle": MessageLookupByLibrary.simpleMessage("Enviar")
+        "sendTitle": MessageLookupByLibrary.simpleMessage("Enviar"),
+        "successChangePasswordTitle":
+            MessageLookupByLibrary.simpleMessage("Senha alterada com sucesso!")
       };
 }

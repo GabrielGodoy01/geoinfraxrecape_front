@@ -3,9 +3,13 @@ import 'package:dartz/dartz.dart';
 import '../../helpers/errors/auth_errors.dart';
 
 abstract class IAuthRepository {
-  Future<Either<AuthErrors, CognitoAuthSession>> loginUser(
+  Future<Either<AuthErrors, SignInResult>> loginUser(
       String email, String password);
+  Future<Either<AuthErrors, SignInResult>> loginWithNewPassword(
+      String email, String password, String newPassword);
   Future<Either<AuthErrors, void>> logoutUser();
   Future<Either<AuthErrors, void>> forgotPassword(String email);
+  Future<Either<AuthErrors, void>> changePassword(
+      String email, String newPassword, String confirmationCode);
   Future<Either<AuthErrors, List<AuthUserAttribute>>> getUserAttributes();
 }

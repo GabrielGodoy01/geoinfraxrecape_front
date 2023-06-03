@@ -3,11 +3,17 @@
     "fieldName": "Name",
     "fieldEmail": "Email",
     "fieldPassword": "Password",
+    "fieldConfirmPassword": "Confirm Password",
+    "fieldCode": "Code",
 
     "enterTitle": "Enter",
     "forgotPasswordTitle": "Forgot password",
+    "loginTitle": "Login",
     "forgotPasswordInstructions": "Please enter your email, we will send you a verification code.",
     "sendTitle": "Send",
+    "changePasswordInstructions": "Please enter the verification code and new password.",
+    "loginWithNewPasswordInstructions": "Please enter your new password",
+    "successChangePasswordTitle": "Password was changed successfully!", 
 
     "entityErrorMessage": "Field {entityErrorMessage} is not valid",
     "@entityErrorMessage" : {
@@ -42,5 +48,7 @@
     
     "requiredFieldAlert": "Required field.",
     "invalidEmailAlert": "Invalid email.",
-    "invalidPasswordAlert": "Invalid password."
+    "invalidPasswordAlert": "Invalid password.",
+    "invalidCodeAlert": "Invalid code.",
+    "invalidEqualPasswordAlert": "Passwords must be the same."
 }

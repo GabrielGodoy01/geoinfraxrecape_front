@@ -1,10 +1,5 @@
-// ignore_for_file: depend_on_referenced_packages, implementation_imports
-
-import 'dart:collection';
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
-import 'package:amplify_auth_cognito_dart/src/jwt/src/header.dart';
-import 'package:amplify_auth_cognito_dart/src/jwt/src/alg.dart';
-import 'package:amplify_auth_cognito_dart/src/jwt/src/claims.dart';
+
 import 'package:amplify_flutter/amplify_flutter.dart';
 
 import 'package:clean_flutter_template/shared/helpers/errors/auth_errors.dart';
@@ -24,27 +19,12 @@ class AuthRepositoryMock extends IAuthRepository {
   }
 
   @override
-  Future<Either<AuthErrors, CognitoAuthSession>> loginUser(
+  Future<Either<AuthErrors, SignInResult>> loginUser(
       String email, String password) {
-    LinkedHashMap map = LinkedHashMap.of(
-        {'refreshToken': '123', 'accessToken': '123', 'idToken': '123'});
-    JsonWebToken mockJsonWebToken = const JsonWebToken(
-        header: JsonWebHeader(
-          algorithm: Algorithm.ecdsaSha256,
-        ),
-        claims: JsonWebClaims(),
-        signature: []);
-    CognitoAuthSession cognitoAuthSession = CognitoAuthSession(
+    var signInResult = const SignInResult(
         isSignedIn: true,
-        credentialsResult:
-            const AWSResult.success(AWSCredentials('123', '123', '123')),
-        identityIdResult: const AWSResult.success('123'),
-        userSubResult: const AWSResult.success('123'),
-        userPoolTokensResult: AWSResult.success(CognitoUserPoolTokens(
-            accessToken: mockJsonWebToken,
-            idToken: mockJsonWebToken,
-            refreshToken: map['refreshToken'])));
-    return Future.value(Right(cognitoAuthSession));
+        nextStep: AuthNextSignInStep(signInStep: AuthSignInStep.done));
+    return Future.value(Right(signInResult));
   }
 
   @override
@@ -55,5 +35,20 @@ class AuthRepositoryMock extends IAuthRepository {
   @override
   Future<Either<AuthErrors, void>> forgotPassword(String email) {
     return Future.value(const Right(null));
+  }
+
+  @override
+  Future<Either<AuthErrors, void>> changePassword(
+      String email, String newPassword, String confirmationCode) {
+    return Future.value(const Right(null));
+  }
+
+  @override
+  Future<Either<AuthErrors, SignInResult>> loginWithNewPassword(
+      String email, String password, String newPassword) {
+    var signInResult = const SignInResult(
+        isSignedIn: true,
+        nextStep: AuthNextSignInStep(signInStep: AuthSignInStep.done));
+    return Future.value(Right(signInResult));
   }
 }
