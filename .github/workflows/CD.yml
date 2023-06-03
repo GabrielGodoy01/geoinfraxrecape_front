@@ -1,8 +1,25 @@
-# name: CD
+name: Build Web Application
+"on":
+  push:
+    branches:
+      - "dev, homolog, prod"
+jobs:
+  build_and_deploy_web:
+    name: Build & Deploy Flutter to Web
+    runs-on: ubuntu-latest
 
-# on:
-#   push:
-#     branches:
-#       - main
+    steps:
+      - uses: actions/checkout@v2
 
-#   workflow_dispatch:
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+
+      - name: 🌍 Enable Web
+        run: flutter config --enable-web
+
+      - name: 📦 Get packages
+        run: flutter pub get
+
+      - name: 🏭 Build Web Application
+        run: flutter build web --release
