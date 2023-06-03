@@ -1,4 +1,4 @@
-name: Build Web Application
+name: On Website Deploy
 "on":
   push:
     branches:
@@ -23,3 +23,12 @@ jobs:
 
       - name: 🏭 Build Web Application
         run: flutter build web --release
+
+      - name: Make copy of artifacts
+        run: |
+          chmod u+x "${GITHUB_WORKSPACE}/createandcopytofolder.sh"
+          bash "${GITHUB_WORKSPACE}/createandcopytofolder.sh"
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Commit the artifacts.
