@@ -32,11 +32,11 @@ void main() {
   });
 
   group('[TEST] - loginUser', () {
-    test('returns success CognitoAuthSession', () async {
+    test('returns success SignInResult', () async {
       when(datasource.postLoginUser(email, password))
           .thenAnswer((realInvocation) async => Right(signInResult));
       var result = await repository.loginUser(email, password);
-      expect(result.fold(id, id), isA<CognitoAuthSession>());
+      expect(result.fold(id, id), isA<SignInResult>());
     });
 
     test('returns error', () async {

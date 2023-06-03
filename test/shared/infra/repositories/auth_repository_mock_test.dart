@@ -18,9 +18,9 @@ void main() {
   });
 
   group('[TEST] - loginUser', () {
-    test('returns success CognitoAuthSession', () async {
+    test('returns success SignInResult', () async {
       var result = await repository.loginUser(email, password);
-      expect(result.fold(id, id), isA<CognitoAuthSession>());
+      expect(result.fold(id, id), isA<SignInResult>());
     });
   });
 

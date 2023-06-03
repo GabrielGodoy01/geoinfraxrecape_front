@@ -24,12 +24,12 @@ void main() {
     usecase = LoginUserUsecase(repository: repository);
   });
 
-  test('[TEST] - login returns success CognitoAuthSession', () async {
+  test('[TEST] - login returns success SignInResult', () async {
     when(repository.loginUser(email, password)).thenAnswer(
       (realInvocation) async => Right(signInResult),
     );
     var result = await usecase(email, password);
-    expect(result.fold(id, id), isA<CognitoAuthSession>());
+    expect(result.fold(id, id), isA<SignInResult>());
   });
 
   test('[TEST] - login returns error', () async {
