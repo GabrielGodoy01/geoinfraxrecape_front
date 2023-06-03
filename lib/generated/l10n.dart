@@ -160,6 +160,16 @@ class S {
     );
   }
 
+  /// `Please enter your new password`
+  String get loginWithNewPasswordInstructions {
+    return Intl.message(
+      'Please enter your new password',
+      name: 'loginWithNewPasswordInstructions',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Password was changed successfully!`
   String get successChangePasswordTitle {
     return Intl.message(

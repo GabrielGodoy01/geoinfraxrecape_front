@@ -50,7 +50,7 @@ class ConfirmNewPasswordPage extends StatelessWidget {
                         ConstrainedBox(
                           constraints: const BoxConstraints(maxWidth: 400),
                           child: Text(
-                            S.of(context).changePasswordInstructions,
+                            S.of(context).loginWithNewPasswordInstructions,
                             textAlign: TextAlign.justify,
                             style: AppTextStyles.displayMedium.copyWith(
                                 color: AppColors.white,

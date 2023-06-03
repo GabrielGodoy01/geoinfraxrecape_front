@@ -12,6 +12,7 @@
     "forgotPasswordInstructions": "Por favor, digite seu e-mail, nós lhe enviaremos um código de verificação.",
     "sendTitle": "Enviar",
     "changePasswordInstructions": "Por favor, digite seu e-mail, código de verificação e sua nova senha.",
+    "loginWithNewPasswordInstructions": "Por favor, digite sua nova senha.",
     "successChangePasswordTitle": "Senha alterada com sucesso!",
 
     "entityErrorMessage": "Campo {entityErrorMessage} não é válido",

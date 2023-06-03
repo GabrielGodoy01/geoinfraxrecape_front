@@ -75,6 +75,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "invalidPasswordAlert":
             MessageLookupByLibrary.simpleMessage("Senha inválida."),
         "loginTitle": MessageLookupByLibrary.simpleMessage("Login"),
+        "loginWithNewPasswordInstructions":
+            MessageLookupByLibrary.simpleMessage(
+                "Por favor, digite sua nova senha."),
         "noItemsFoundErrorMessage": m2,
         "requestErrorMessage": m3,
         "requiredFieldAlert":
