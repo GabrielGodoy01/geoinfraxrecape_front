@@ -1,6 +1,9 @@
 name: Flutter CI TEST
 
 on:
+  push:
+      branches:
+        - "dev, homolog, prod"
   pull_request:
 jobs:
   flutter_test:

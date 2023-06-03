@@ -1,6 +1,9 @@
 name: Flutter CI Linter
 
 on:
+  push:
+    branches:
+      - "dev, homolog, prod"
   pull_request:
     branches: [dev, master]
 jobs:
