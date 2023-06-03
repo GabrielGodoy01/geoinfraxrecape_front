@@ -1,4 +1,3 @@
-import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import '../../../../../../shared/helpers/errors/auth_errors.dart';
 
 abstract class LoginState {
@@ -9,10 +8,10 @@ class LoginInitialState extends LoginState {}
 
 class LoginLoadingState extends LoginState {}
 
-class LoginSuccessState extends LoginState {
-  final CognitoAuthSession authSession;
+class LoginNewPasswordState extends LoginState {}
 
-  const LoginSuccessState({required this.authSession});
+class LoginSuccessState extends LoginState {
+  const LoginSuccessState();
 }
 
 class LoginErrorState extends LoginState {

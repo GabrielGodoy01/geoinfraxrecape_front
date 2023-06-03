@@ -1,27 +1,22 @@
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:dartz/dartz.dart';
-
 import '../../../../generated/l10n.dart';
 import '../../../helpers/errors/auth_errors.dart';
 import '../../../infra/external/http/auth_datasouce_interface.dart';
 
 class AuthDatasource extends IAuthDatasource {
   @override
-  Future<Either<AuthErrors, CognitoAuthSession>> postLoginUser(
+  Future<Either<AuthErrors, SignInResult>> postLoginUser(
       String email, String password) async {
     try {
-      late CognitoAuthSession result;
       await Amplify.Auth.signOut();
-      await Amplify.Auth.signIn(
+      var res = await Amplify.Auth.signIn(
         username: email,
         password: password,
-      ).whenComplete(() async {
-        result = await Amplify.Auth.getPlugin(
-          AmplifyAuthCognito.pluginKey,
-        ).fetchAuthSession();
-      });
-      return right(result);
+      );
+      print('datasorce: $res');
+      return right(res);
     } catch (e) {
       return left(_handleError(e));
     }

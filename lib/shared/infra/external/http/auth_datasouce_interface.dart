@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 import '../../../helpers/errors/auth_errors.dart';
 
 abstract class IAuthDatasource {
-  Future<Either<AuthErrors, CognitoAuthSession>> postLoginUser(
+  Future<Either<AuthErrors, SignInResult>> postLoginUser(
       String email, String password);
   Future<Either<AuthErrors, void>> postLogout();
   // Future<Either<AuthErrors, User>> postRegisterUser(UserModel user);

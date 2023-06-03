@@ -10,7 +10,7 @@ class AuthRepository extends IAuthRepository {
   AuthRepository({required this.datasource});
 
   @override
-  Future<Either<AuthErrors, CognitoAuthSession>> loginUser(
+  Future<Either<AuthErrors, SignInResult>> loginUser(
       String email, String password) async {
     var result = await datasource.postLoginUser(email, password);
     return result.fold(
