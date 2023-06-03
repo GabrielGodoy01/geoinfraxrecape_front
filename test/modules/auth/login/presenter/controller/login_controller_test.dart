@@ -35,6 +35,11 @@ void main() {
       isSignedIn: true,
       nextStep: AuthNextSignInStep(signInStep: AuthSignInStep.done));
 
+  SignInResult signInResultNewPassword = const SignInResult(
+      isSignedIn: true,
+      nextStep: AuthNextSignInStep(
+          signInStep: AuthSignInStep.confirmSignInWithNewPassword));
+
   AuthUserAttribute user = const AuthUserAttribute(
       userAttributeKey: CognitoUserAttributeKey.custom('custom:role'),
       value: 'student');
@@ -45,6 +50,14 @@ void main() {
       when(getUserAttributes.call()).thenAnswer((_) async => Right([user]));
       await controller.loginWithEmail();
       expect(controller.state, isA<LoginSuccessState>());
+    });
+
+    test('must return LoginNewPasswordState', () async {
+      when(usecase.call('', ''))
+          .thenAnswer((_) async => Right(signInResultNewPassword));
+      when(getUserAttributes.call()).thenAnswer((_) async => Right([user]));
+      await controller.loginWithEmail();
+      expect(controller.state, isA<LoginNewPasswordState>());
     });
 
     test('must return LoginErrorState', () async {
