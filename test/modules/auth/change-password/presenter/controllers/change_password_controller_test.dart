@@ -18,21 +18,21 @@ void main() {
   IChangePasswordUsecase usecase = MockIChangePasswordUsecase();
 
   setUp(() async {
-    controller = ChangePasswordController(usecase, '');
+    controller = ChangePasswordController(usecase);
     await S.load(const Locale.fromSubtags(languageCode: 'en'));
   });
 
   group('[TEST] - changePassword', () {
     test('must return ChangePasswordSuccessState', () async {
       when(usecase.call('', '', '')).thenAnswer((_) async => const Right(null));
-      await controller.changePassword();
+      await controller.changePassword('');
       expect(controller.state, isA<ChangePasswordSuccessState>());
     });
 
     test('must return ChangePasswordErrorState', () async {
       when(usecase.call('', '', ''))
           .thenAnswer((_) async => Left(AuthErrors(message: '')));
-      await controller.changePassword();
+      await controller.changePassword('');
       expect(controller.state, isA<ChangePasswordErrorState>());
     });
   });

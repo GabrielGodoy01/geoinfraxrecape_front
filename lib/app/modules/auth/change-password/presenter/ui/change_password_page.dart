@@ -7,13 +7,15 @@ import '../../../../../../shared/helpers/errors/auth_errors.dart';
 import '../../../../../../shared/helpers/utils/screen_helper.dart';
 import '../../../../../../shared/themes/app_colors.dart';
 import '../../../../../../shared/themes/app_text_styles.dart';
+import '../../../../../../shared/widgets/auth_button_widget.dart';
 import '../../../../../../shared/widgets/text_field_custom_widget.dart';
 import '../controllers/change_password_controller.dart';
 import '../states/change_password_state.dart';
 
 class ChangePasswordPage extends StatelessWidget {
   final formKey = GlobalKey<FormState>();
-  ChangePasswordPage({super.key});
+  final String email;
+  ChangePasswordPage({super.key, required this.email});
 
   @override
   Widget build(BuildContext context) {
@@ -78,6 +80,21 @@ class ChangePasswordPage extends StatelessWidget {
                     onToggleVisibilityPwd:
                         changeController.changeConfirmPasswordVisibility,
                   ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  TextFieldCustomWidget(
+                    hintText: S.current.fieldCode,
+                    onChanged: changeController.setCode,
+                    validator: changeController.validateCode,
+                  ),
+                  AuthButtonWidget(
+                      title: S.of(context).sendTitle,
+                      onPressed: () {
+                        if (formKey.currentState!.validate()) {
+                          changeController.changePassword(email);
+                        }
+                      }),
                 ],
               ));
             },

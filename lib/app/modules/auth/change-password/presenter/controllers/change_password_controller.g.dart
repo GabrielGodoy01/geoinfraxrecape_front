@@ -113,8 +113,8 @@ mixin _$ChangePasswordController on ChangePasswordControllerBase, Store {
       context: context);
 
   @override
-  Future<void> changePassword() {
-    return _$changePasswordAsyncAction.run(() => super.changePassword());
+  Future<void> changePassword(String email) {
+    return _$changePasswordAsyncAction.run(() => super.changePassword(email));
   }
 
   late final _$ChangePasswordControllerBaseActionController =

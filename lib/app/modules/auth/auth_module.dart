@@ -20,8 +20,7 @@ class AuthModule extends Module {
   List<Bind> get binds => [
         Bind<LoginController>((i) => LoginController(i())),
         Bind<ForgotPasswordController>((i) => ForgotPasswordController(i())),
-        Bind<ChangePasswordController>(
-            (i) => ChangePasswordController(i(), i.args.data as String)),
+        Bind<ChangePasswordController>((i) => ChangePasswordController(i())),
         Bind<ILoginUserUsecase>((i) => LoginUserUsecase(repository: i())),
         Bind<IForgotPasswordUsecase>(
             (i) => ForgotPasswordUsecase(repository: i())),
@@ -46,7 +45,7 @@ class AuthModule extends Module {
         ),
         ChildRoute(
           '/change-password',
-          child: (_, __) => ChangePasswordPage(),
+          child: (context, args) => ChangePasswordPage(email: args.data),
         ),
       ];
 }

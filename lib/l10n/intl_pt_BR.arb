@@ -4,6 +4,7 @@
     "fieldEmail": "Email",
     "fieldPassword": "Senha",
     "fieldConfirmPassword": "Confirme sua senha",
+    "fieldCode": "Código",
 
     "enterTitle": "Entrar",
     "forgotPasswordTitle": "Esqueci minha senha",

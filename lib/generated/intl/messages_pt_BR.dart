@@ -56,6 +56,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Lista vazia, itens não encontrados para essa requisição"),
         "enterTitle": MessageLookupByLibrary.simpleMessage("Entrar"),
         "entityErrorMessage": m1,
+        "fieldCode": MessageLookupByLibrary.simpleMessage("Código"),
         "fieldConfirmPassword":
             MessageLookupByLibrary.simpleMessage("Confirme sua senha"),
         "fieldEmail": MessageLookupByLibrary.simpleMessage("Email"),

@@ -1,8 +1,8 @@
 import 'package:clean_flutter_template/app/modules/auth/auth_module.dart';
-import 'package:clean_flutter_template/app/modules/auth/forgot-password/presenter/controllers/forgot_password_controller.dart';
-import 'package:clean_flutter_template/app/modules/auth/forgot-password/presenter/ui/forgot_password_page.dart';
+import 'package:clean_flutter_template/app/modules/auth/change-password/presenter/controllers/change_password_controller.dart';
+import 'package:clean_flutter_template/app/modules/auth/change-password/presenter/ui/change_password_page.dart';
 import 'package:clean_flutter_template/generated/l10n.dart';
-import 'package:clean_flutter_template/shared/domain/usecases/forgot_password_usecase.dart';
+import 'package:clean_flutter_template/shared/domain/usecases/change_password_usecase.dart';
 import 'package:clean_flutter_template/shared/helpers/errors/auth_errors.dart';
 import 'package:clean_flutter_template/shared/widgets/auth_button_widget.dart';
 import 'package:clean_flutter_template/shared/widgets/text_field_custom_widget.dart';
@@ -16,26 +16,26 @@ import 'package:mockito/mockito.dart';
 import 'package:modular_test/modular_test.dart';
 import 'package:flutter_modular/flutter_modular.dart' as modular;
 
-import '../controllers/forgot_password_controller_test.mocks.dart';
+import 'change_password_page_test.mocks.dart';
 
-@GenerateMocks([IForgotPasswordUsecase])
+@GenerateMocks([IChangePasswordUsecase])
 void main() {
-  late ForgotPasswordController controller;
-  IForgotPasswordUsecase usecase = MockIForgotPasswordUsecase();
+  late ChangePasswordController controller;
+  IChangePasswordUsecase usecase = MockIChangePasswordUsecase();
 
   setUp(() async {
     initModules([
       AuthModule()
     ], replaceBinds: [
-      modular.Bind<IForgotPasswordUsecase>((i) => usecase),
+      modular.Bind<IChangePasswordUsecase>((i) => usecase),
     ]);
-    controller = Modular.get<ForgotPasswordController>();
-    usecase = Modular.get<IForgotPasswordUsecase>();
+    controller = Modular.get<ChangePasswordController>();
+    usecase = Modular.get<IChangePasswordUsecase>();
     await S.load(const Locale.fromSubtags(languageCode: 'en'));
   });
 
   testWidgets(
-      '[TEST] - ForgotPasswordPage must show some widgets when initialize',
+      '[TEST] - ChangePasswordPage must show some widgets when initialize',
       (widgetTester) async {
     await widgetTester.pumpWidget(MaterialApp(
         localizationsDelegates: const [
@@ -44,16 +44,16 @@ void main() {
           GlobalWidgetsLocalizations.delegate,
         ],
         supportedLocales: S.delegate.supportedLocales,
-        home: ForgotPasswordPage()));
+        home: ChangePasswordPage(email: '')));
     expect(find.byType(Form), findsOneWidget);
     expect(find.byType(AuthButtonWidget), findsOneWidget);
-    expect(find.byType(TextFieldCustomWidget), findsOneWidget);
-    expect(find.text(S.current.forgotPasswordInstructions), findsOneWidget);
+    expect(find.byType(TextFieldCustomWidget), findsNWidgets(3));
+    expect(find.text(S.current.changePasswordInstructions), findsOneWidget);
     expect(find.byType(Image), findsOneWidget);
   });
 
   testWidgets(
-      '[TEST] - ForgotPasswordPage must show ErrorWidget when create user',
+      '[TEST] - ChangePasswordPage must show ErrorWidget when create user',
       (widgetTester) async {
     await widgetTester.pumpWidget(MaterialApp(
         localizationsDelegates: const [
@@ -62,15 +62,16 @@ void main() {
           GlobalWidgetsLocalizations.delegate,
         ],
         supportedLocales: S.delegate.supportedLocales,
-        home: ForgotPasswordPage()));
-    when(usecase.call('gabriel.godoybz@hotmail.com'))
+        home: ChangePasswordPage(
+          email: '',
+        )));
+    when(usecase.call('', '', ''))
         .thenAnswer((_) async => left(AuthErrors(message: 'message')));
-    await widgetTester.runAsync(
-        () async => controller.setEmail('gabriel.godoybz@hotmail.com'));
-
-    await widgetTester.runAsync(
-        () async => controller.setEmail('gabriel.godoybz@hotmail.com'));
-    await widgetTester.runAsync(() async => controller.forgotPasswordUser());
+    await widgetTester.runAsync(() async => controller.setCode(''));
+    await widgetTester.runAsync(() async => controller.setNewPassword(''));
+    await widgetTester
+        .runAsync(() async => controller.setConfirmNewPassword(''));
+    await widgetTester.runAsync(() async => controller.changePassword(''));
     await widgetTester.pump();
 
     expect(find.text(S.current.requestErrorMessage('', 'message')),

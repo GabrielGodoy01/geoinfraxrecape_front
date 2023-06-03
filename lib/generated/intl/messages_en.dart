@@ -54,6 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "List is empty, no items found for this request"),
         "enterTitle": MessageLookupByLibrary.simpleMessage("Enter"),
         "entityErrorMessage": m1,
+        "fieldCode": MessageLookupByLibrary.simpleMessage("Code"),
         "fieldConfirmPassword":
             MessageLookupByLibrary.simpleMessage("Confirm Password"),
         "fieldEmail": MessageLookupByLibrary.simpleMessage("Email"),

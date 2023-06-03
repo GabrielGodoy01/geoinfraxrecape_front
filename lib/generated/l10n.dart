@@ -90,6 +90,16 @@ class S {
     );
   }
 
+  /// `Code`
+  String get fieldCode {
+    return Intl.message(
+      'Code',
+      name: 'fieldCode',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Enter`
   String get enterTitle {
     return Intl.message(

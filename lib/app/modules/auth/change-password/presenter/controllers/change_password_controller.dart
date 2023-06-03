@@ -11,9 +11,8 @@ class ChangePasswordController = ChangePasswordControllerBase
 
 abstract class ChangePasswordControllerBase with Store {
   final IChangePasswordUsecase _changePassword;
-  final String email;
 
-  ChangePasswordControllerBase(this._changePassword, this.email);
+  ChangePasswordControllerBase(this._changePassword);
 
   @observable
   ChangePasswordState state = ChangePasswordInitialState();
@@ -64,7 +63,7 @@ abstract class ChangePasswordControllerBase with Store {
   }
 
   @action
-  Future<void> changePassword() async {
+  Future<void> changePassword(String email) async {
     state = ChangePasswordLoadingState();
     var result = await _changePassword(email, code, newPassword);
     state = result.fold((failure) {
