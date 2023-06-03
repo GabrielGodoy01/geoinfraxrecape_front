@@ -2,10 +2,9 @@ name: Flutter CI Linter
 
 on:
   push:
-    branches:
-      - "dev, homolog, prod"
+    branches: [dev]
   pull_request:
-    branches: [dev, master]
+    branches: [dev]
 jobs:
   flutter_analyze:
     name: Run flutter analyze

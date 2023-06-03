@@ -1,8 +1,7 @@
 name: On Website Deploy
 "on":
   push:
-    branches:
-      - "dev, homolog, prod"
+    branches: [dev, homolog, prod] 
 jobs:
   build_and_deploy_web:
     name: Build & Deploy Flutter to Web
