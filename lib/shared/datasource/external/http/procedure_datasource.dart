@@ -10,8 +10,8 @@ class ProcedureDatasource extends IProcedureDatasource {
 
   @override
   Future<List<Procedure>> getAllProcedures() async {
-    var response = await _httpService.post(
-      '/delete-user',
+    var response = await _httpService.get(
+      '/get-all-procedures',
     );
     if (response.statusCode == 200) {
       return ProcedureModel.fromMaps(response.data);
