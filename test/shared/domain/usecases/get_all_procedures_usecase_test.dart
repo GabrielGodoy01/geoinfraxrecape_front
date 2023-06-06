@@ -28,6 +28,7 @@ void main() {
               lat: '',
               long: '',
               dataTermReal: DateTime.now(),
+              via: '',
             )
           ]));
       var result = await usecase();

@@ -28,6 +28,7 @@ void main() {
       lat: '',
       long: '',
       dataTermReal: DateTime.now(),
+      via: '',
     ),
     Procedure(
       protcod: '',
@@ -36,6 +37,7 @@ void main() {
       lat: '',
       long: '',
       dataTermReal: DateTime.now(),
+      via: '',
     ),
     Procedure(
       protcod: '',
@@ -44,6 +46,7 @@ void main() {
       lat: '',
       long: '',
       dataTermReal: DateTime.now(),
+      via: '',
     )
   ];
 

@@ -2,7 +2,8 @@ import 'package:clean_flutter_template/shared/domain/entities/procedure.dart';
 
 class ProcedureModel extends Procedure {
   ProcedureModel(
-      {required super.protcod,
+      {required super.via,
+      required super.protcod,
       required super.nomePermissionariaCompleto,
       required super.nomePermissionaria,
       required super.lat,
@@ -17,6 +18,7 @@ class ProcedureModel extends Procedure {
       lat: json['lat'],
       long: json['long'],
       dataTermReal: json['dataTermReal'],
+      via: json['via'],
     );
   }
 

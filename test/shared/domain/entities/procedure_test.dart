@@ -18,6 +18,7 @@ void main() {
         dataTermReal: DateTime.now(),
         nomePermissionaria: '',
         nomePermissionariaCompleto: '',
+        via: '',
       ),
       isNotNull,
     );

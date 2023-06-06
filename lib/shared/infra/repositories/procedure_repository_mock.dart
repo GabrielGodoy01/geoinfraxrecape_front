@@ -13,6 +13,7 @@ class ProcedureRepositoryMock extends IProcedureRepository {
       lat: '',
       long: '',
       dataTermReal: DateTime.now(),
+      via: '',
     ),
     Procedure(
       protcod: '',
@@ -21,6 +22,7 @@ class ProcedureRepositoryMock extends IProcedureRepository {
       lat: '',
       long: '',
       dataTermReal: DateTime.now(),
+      via: '',
     ),
     Procedure(
       protcod: '',
@@ -29,6 +31,7 @@ class ProcedureRepositoryMock extends IProcedureRepository {
       lat: '',
       long: '',
       dataTermReal: DateTime.now(),
+      via: '',
     )
   ];
 
