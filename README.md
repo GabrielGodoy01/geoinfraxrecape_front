@@ -1,4 +1,4 @@
-[![codecov](https://codecov.io/gh/Maua-Dev/clean_flutter_template/branch/dev/graph/badge.svg?token=ZPKZHXHM9X)](https://codecov.io/gh/Maua-Dev/clean_flutter_template)
+[![codecov](https://codecov.io/gh/GabrielGodoy01/geoinfraxgeovista_front/branch/dev/graph/badge.svg?token=B8LJBKBAL6)](https://codecov.io/gh/GabrielGodoy01/geoinfraxgeovista_front)
 
 # clean_flutter_template 🌡🍽
 
