@@ -8,10 +8,10 @@ import '../../helpers/errors/errors.dart';
 import '../../helpers/functions/get_http_status_function.dart';
 import '../external/http/procedure_datasource_interface.dart';
 
-class ProcedureRepository extends IProcedureRepository {
+class ProcedureRepositoryHttp extends IProcedureRepository {
   final IProcedureDatasource datasource;
 
-  ProcedureRepository(this.datasource);
+  ProcedureRepositoryHttp(this.datasource);
 
   @override
   Future<Either<Failure, List<Procedure>>> getAllProcedures() async {
