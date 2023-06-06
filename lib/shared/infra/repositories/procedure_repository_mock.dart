@@ -7,31 +7,34 @@ import '../../helpers/errors/errors.dart';
 class ProcedureRepositoryMock extends IProcedureRepository {
   var listProcedures = <Procedure>[
     Procedure(
-      protcod: '',
-      nomePermissionariaCompleto: '',
-      nomePermissionaria: '',
-      lat: '',
-      long: '',
+      protcod: '47284559',
+      nomePermissionariaCompleto:
+          'Companhia de Saneamento Básico do Estado de São Paulo',
+      nomePermissionaria: 'SABESP/MLQA',
+      lat: '-23.565032',
+      long: '-46.464612	',
       dataTermReal: DateTime.now(),
-      via: '',
+      via: 'Rua Samuel Morse',
     ),
     Procedure(
-      protcod: '',
-      nomePermissionariaCompleto: '',
-      nomePermissionaria: '',
-      lat: '',
-      long: '',
+      protcod: '47408913',
+      nomePermissionariaCompleto:
+          'Companhia de Saneamento Básico do Estado de São Paulo',
+      nomePermissionaria: 'SABESP/MLQA',
+      lat: '-23.539804',
+      long: '-46.460793',
       dataTermReal: DateTime.now(),
-      via: '',
+      via: 'Rua Samuel Morse',
     ),
     Procedure(
-      protcod: '',
-      nomePermissionariaCompleto: '',
-      nomePermissionaria: '',
-      lat: '',
-      long: '',
+      protcod: '47686778',
+      nomePermissionariaCompleto:
+          'Companhia de Saneamento Básico do Estado de São Paulo',
+      nomePermissionaria: 'SABESP/MCRV',
+      lat: '-23.528308',
+      long: '-46.710216',
       dataTermReal: DateTime.now(),
-      via: '',
+      via: 'Rua Samuel Morse',
     )
   ];
 

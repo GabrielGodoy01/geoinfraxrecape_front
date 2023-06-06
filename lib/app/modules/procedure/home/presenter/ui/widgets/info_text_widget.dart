@@ -1,3 +1,4 @@
+import 'package:clean_flutter_template/shared/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class InfoTextWidget extends StatelessWidget {
@@ -8,14 +9,16 @@ class InfoTextWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          title,
-          style: Theme.of(context).textTheme.titleLarge,
-        ),
+        Text(title,
+            style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                  color: AppColors.grey,
+                )),
         Text(
           info,
-          style: Theme.of(context).textTheme.bodyLarge,
+          style: Theme.of(context).textTheme.titleLarge,
         ),
       ],
     );
