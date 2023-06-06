@@ -4,7 +4,7 @@ import 'package:dartz/dartz.dart';
 import '../../domain/entities/procedure.dart';
 import '../../helpers/errors/errors.dart';
 
-class ProcedureRepositoryMock implements IProcedureRepository {
+class ProcedureRepositoryMock extends IProcedureRepository {
   var listProcedures = <Procedure>[
     Procedure(
       protcod: '',

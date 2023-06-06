@@ -8,7 +8,7 @@ abstract class IGetAllProceduresUsecase {
   Future<Either<Failure, List<Procedure>>> call();
 }
 
-class GetAllProceduresUsecase implements IGetAllProceduresUsecase {
+class GetAllProceduresUsecase extends IGetAllProceduresUsecase {
   final IProcedureRepository repository;
 
   GetAllProceduresUsecase(this.repository);
