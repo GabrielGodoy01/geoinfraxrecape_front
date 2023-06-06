@@ -27,18 +27,34 @@ abstract class HomeControllerBase with Store {
   @observable
   String codeFilter = '';
 
-  @action
-  void setCodeFilter(String value) => codeFilter = value;
+  @observable
+  String viaFilter = '';
 
   @action
-  void filterByCode(String value) {
+  List<Procedure> filterByCode() {
+    final procedures = (state as HomeSuccessState).procedures;
+    final filteredProcedures = procedures
+        .where((procedure) => procedure.protcod.contains(codeFilter))
+        .toList();
+    return filteredProcedures;
+  }
+
+  @action
+  List<Procedure> filterByVia() {
+    final procedures = (state as HomeSuccessState).procedures;
+    final filteredProcedures = procedures
+        .where((procedure) => procedure.via.contains(viaFilter))
+        .toList();
+    return filteredProcedures;
+  }
+
+  @action
+  void filter() {
+    var filtered = <Procedure>[];
     if (state is HomeSuccessState) {
-      final procedures = (state as HomeSuccessState).procedures;
-      final filteredProcedures = procedures
-          .where((procedure) => procedure.protcod.contains(codeFilter))
-          .toList();
-      state = HomeSuccessState(filteredProcedures);
+      if (codeFilter.isNotEmpty) filtered = filterByCode();
     }
+    state = HomeSuccessState(filtered);
   }
 
   @action

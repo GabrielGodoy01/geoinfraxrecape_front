@@ -52,34 +52,11 @@ class HomePage extends StatelessWidget {
     return Expanded(
       child: Column(
         children: [
-          Card(
-            child: TextButton(
-                onPressed: () {
-                  showDialog(
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                          title: const Text('Filtro'),
-                          content: FilterTextfieldWidget(
-                            hintText: 'Código',
-                            onChanged: controller.setCodeFilter,
-                          ),
-                          actions: [
-                            TextButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                child: const Text('Limpar')),
-                            TextButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                child: const Text('Fechar')),
-                          ],
-                        );
-                      });
-                },
-                child: const Text('Filtro')),
+          FilterTextfieldWidget(
+            hintText: 'Código',
+            onChanged: (a) {
+              controller.filter();
+            },
           ),
           Expanded(
             child: ListView.builder(

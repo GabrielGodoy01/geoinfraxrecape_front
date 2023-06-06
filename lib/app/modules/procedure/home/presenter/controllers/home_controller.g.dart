@@ -57,6 +57,22 @@ mixin _$HomeController on HomeControllerBase, Store {
     });
   }
 
+  late final _$viaFilterAtom =
+      Atom(name: 'HomeControllerBase.viaFilter', context: context);
+
+  @override
+  String get viaFilter {
+    _$viaFilterAtom.reportRead();
+    return super.viaFilter;
+  }
+
+  @override
+  set viaFilter(String value) {
+    _$viaFilterAtom.reportWrite(value, super.viaFilter, () {
+      super.viaFilter = value;
+    });
+  }
+
   late final _$getAllProceduresAsyncAction =
       AsyncAction('HomeControllerBase.getAllProcedures', context: context);
 
@@ -80,22 +96,33 @@ mixin _$HomeController on HomeControllerBase, Store {
   }
 
   @override
-  void setCodeFilter(String value) {
+  List<Procedure> filterByCode() {
     final _$actionInfo = _$HomeControllerBaseActionController.startAction(
-        name: 'HomeControllerBase.setCodeFilter');
+        name: 'HomeControllerBase.filterByCode');
     try {
-      return super.setCodeFilter(value);
+      return super.filterByCode();
     } finally {
       _$HomeControllerBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  void filterByCode(String value) {
+  List<Procedure> filterByVia() {
     final _$actionInfo = _$HomeControllerBaseActionController.startAction(
-        name: 'HomeControllerBase.filterByCode');
+        name: 'HomeControllerBase.filterByVia');
     try {
-      return super.filterByCode(value);
+      return super.filterByVia();
+    } finally {
+      _$HomeControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void filter() {
+    final _$actionInfo = _$HomeControllerBaseActionController.startAction(
+        name: 'HomeControllerBase.filter');
+    try {
+      return super.filter();
     } finally {
       _$HomeControllerBaseActionController.endAction(_$actionInfo);
     }
@@ -106,7 +133,8 @@ mixin _$HomeController on HomeControllerBase, Store {
     return '''
 allProcedures: ${allProcedures},
 state: ${state},
-codeFilter: ${codeFilter}
+codeFilter: ${codeFilter},
+viaFilter: ${viaFilter}
     ''';
   }
 }
