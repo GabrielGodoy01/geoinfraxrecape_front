@@ -1,6 +1,6 @@
-import 'package:clean_flutter_template/app/modules/home/presenter/ui/home_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'modules/auth/auth_module.dart';
+import 'modules/procedure/procedure_module.dart';
 
 class AppModule extends Module {
   @override
@@ -12,6 +12,9 @@ class AppModule extends Module {
           Modular.initialRoute,
           module: AuthModule(),
         ),
-        ChildRoute('/home', child: (_, __) => const HomePage()),
+        ModuleRoute(
+          '/home',
+          module: ProcedureModule(),
+        ),
       ];
 }

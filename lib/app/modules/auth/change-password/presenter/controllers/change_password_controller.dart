@@ -67,12 +67,12 @@ abstract class ChangePasswordControllerBase with Store {
   Future<void> changePassword(String email) async {
     state = ChangePasswordLoadingState();
     var result = await _changePassword(email, code, newPassword);
-    state = result.fold((failure) {
+    changeState(result.fold((failure) {
       return ChangePasswordErrorState(error: failure);
     }, (changed) {
       Modular.to.navigate('/success-change-password');
       return const ChangePasswordSuccessState();
-    });
+    }));
   }
 
   @action
