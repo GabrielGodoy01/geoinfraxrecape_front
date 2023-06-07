@@ -17,7 +17,37 @@ class ProcedureRepositoryMock extends IProcedureRepository {
       via: 'Rua Samuel Morse',
     ),
     Procedure(
+      protcod: '47484559',
+      nomePermissionariaCompleto:
+          'Companhia de Saneamento Básico do Estado de São Paulo',
+      nomePermissionaria: 'SABESP/MLQA',
+      lat: '-23.565032',
+      long: '-46.464612	',
+      dataTermReal: DateTime.now(),
+      via: 'Rua Anchieta',
+    ),
+    Procedure(
       protcod: '47408913',
+      nomePermissionariaCompleto:
+          'Companhia de Saneamento Básico do Estado de São Paulo',
+      nomePermissionaria: 'SABESP/MLQA',
+      lat: '-23.539804',
+      long: '-46.460793',
+      dataTermReal: DateTime.now(),
+      via: 'Rua Samuel Morse',
+    ),
+    Procedure(
+      protcod: '47508913',
+      nomePermissionariaCompleto:
+          'Companhia de Saneamento Básico do Estado de São Paulo',
+      nomePermissionaria: 'SABESP/MLQA',
+      lat: '-23.539804',
+      long: '-46.460793',
+      dataTermReal: DateTime(2023, 06, 08),
+      via: 'Rua Samuel Morse',
+    ),
+    Procedure(
+      protcod: '47608913',
       nomePermissionariaCompleto:
           'Companhia de Saneamento Básico do Estado de São Paulo',
       nomePermissionaria: 'SABESP/MLQA',

@@ -1,5 +1,6 @@
 import 'package:clean_flutter_template/shared/domain/entities/procedure.dart';
 import 'package:clean_flutter_template/shared/domain/usecases/get_all_procedures_usecase.dart';
+import 'package:intl/intl.dart';
 import 'package:mobx/mobx.dart';
 
 import '../states/home_state.dart';
@@ -30,31 +31,79 @@ abstract class HomeControllerBase with Store {
   @observable
   String viaFilter = '';
 
+  @observable
+  String permissionariaFilter = '';
+
+  @observable
+  String dateFilter = '';
+
   @action
-  List<Procedure> filterByCode() {
-    final procedures = (state as HomeSuccessState).procedures;
-    final filteredProcedures = procedures
-        .where((procedure) => procedure.protcod.contains(codeFilter))
-        .toList();
-    return filteredProcedures;
+  void setCodeFilter(String value) {
+    codeFilter = value;
+    filter();
   }
 
   @action
-  List<Procedure> filterByVia() {
-    final procedures = (state as HomeSuccessState).procedures;
-    final filteredProcedures = procedures
-        .where((procedure) => procedure.via.contains(viaFilter))
-        .toList();
-    return filteredProcedures;
+  void setViaFilter(String value) {
+    viaFilter = value;
+    filter();
+  }
+
+  @action
+  void setPermissionariaFilter(String value) {
+    permissionariaFilter = value;
+    filter();
+  }
+
+  @action
+  void setDate(String value) {
+    dateFilter = value;
+    filter();
   }
 
   @action
   void filter() {
-    var filtered = <Procedure>[];
-    if (state is HomeSuccessState) {
-      if (codeFilter.isNotEmpty) filtered = filterByCode();
+    var filtered = allProcedures;
+    if (codeFilter.isNotEmpty) {
+      filtered = filtered
+          .where((element) =>
+              element.protcod.toLowerCase().contains(codeFilter.toLowerCase()))
+          .toList();
     }
+    if (viaFilter.isNotEmpty) {
+      filtered = filtered
+          .where((element) =>
+              element.via.toLowerCase().contains(viaFilter.toLowerCase()))
+          .toList();
+    }
+    if (permissionariaFilter.isNotEmpty) {
+      filtered = filtered
+          .where((element) => element.nomePermissionaria
+              .toLowerCase()
+              .contains(permissionariaFilter.toLowerCase()))
+          .toList();
+    }
+    if (dateFilter.isNotEmpty) {
+      filtered = filtered.where((element) {
+        var date = DateFormat('dd/MM/yyyy').format(element.dataTermReal);
+        return dateFilter == date;
+      }).toList();
+    }
+
     state = HomeSuccessState(filtered);
+  }
+
+  List<String> getSuggestions() {
+    return allProcedures.map((e) => e.nomePermissionaria).toSet().toList();
+  }
+
+  void clearFilters() {
+    codeFilter = '';
+    viaFilter = '';
+    permissionariaFilter = '';
+    dateFilter = '';
+    state = HomeSuccessState(allProcedures);
+    print(permissionariaFilter);
   }
 
   @action

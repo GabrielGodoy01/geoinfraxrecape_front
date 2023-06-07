@@ -96,22 +96,22 @@ mixin _$HomeController on HomeControllerBase, Store {
   }
 
   @override
-  List<Procedure> filterByCode() {
+  void setCodeFilter(String value) {
     final _$actionInfo = _$HomeControllerBaseActionController.startAction(
-        name: 'HomeControllerBase.filterByCode');
+        name: 'HomeControllerBase.setCodeFilter');
     try {
-      return super.filterByCode();
+      return super.setCodeFilter(value);
     } finally {
       _$HomeControllerBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  List<Procedure> filterByVia() {
+  void setViaFilter(String value) {
     final _$actionInfo = _$HomeControllerBaseActionController.startAction(
-        name: 'HomeControllerBase.filterByVia');
+        name: 'HomeControllerBase.setViaFilter');
     try {
-      return super.filterByVia();
+      return super.setViaFilter(value);
     } finally {
       _$HomeControllerBaseActionController.endAction(_$actionInfo);
     }

@@ -4,8 +4,9 @@ import 'package:clean_flutter_template/shared/themes/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:intl/intl.dart';
 import '../../../../../../shared/domain/entities/procedure.dart';
-import '../../../../../../shared/widgets/text_field_custom_widget.dart';
+import '../../../../../../shared/themes/app_text_styles.dart';
 import '../controllers/home_controller.dart';
 import '../states/home_state.dart';
 
@@ -16,32 +17,34 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     var controller = Modular.get<HomeController>();
     return Scaffold(
-        body: Center(
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 1200),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 16),
-            Text('Sistema nomeSistema',
-                style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                      color: AppColors.black,
-                      fontWeight: FontWeight.bold,
-                    )),
-            Text('Lista de Dados Emergenciais dataAtual - dataOntem',
-                style: Theme.of(context).textTheme.headlineSmall),
-            const SizedBox(height: 16),
-            Observer(builder: (_) {
-              var state = controller.state;
-              return state is HomeLoadingState
-                  ? const CircularProgressIndicator()
-                  : state is HomeSuccessState
-                      ? _buildSuccess(state.procedures, context)
-                      : state is HomeErrorState
-                          ? Text(state.error.message)
-                          : Container();
-            }),
-          ],
+        body: SingleChildScrollView(
+      child: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 1200),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 16),
+              Text('Sistema nomeSistema',
+                  style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                        color: AppColors.black,
+                        fontWeight: FontWeight.bold,
+                      )),
+              Text('Lista de Dados Emergenciais dataAtual - dataOntem',
+                  style: Theme.of(context).textTheme.headlineSmall),
+              const SizedBox(height: 16),
+              Observer(builder: (_) {
+                var state = controller.state;
+                return state is HomeLoadingState
+                    ? const CircularProgressIndicator()
+                    : state is HomeSuccessState
+                        ? _buildSuccess(state.procedures, context)
+                        : state is HomeErrorState
+                            ? Text(state.error.message)
+                            : Container();
+              }),
+            ],
+          ),
         ),
       ),
     ));
@@ -49,30 +52,152 @@ class HomePage extends StatelessWidget {
 
   Widget _buildSuccess(List<Procedure> procedures, BuildContext context) {
     var controller = Modular.get<HomeController>();
-    return Expanded(
-      child: Column(
-        children: [
-          FilterTextfieldWidget(
-            hintText: 'Código',
-            onChanged: (a) {
-              controller.filter();
-            },
-          ),
-          Expanded(
-            child: ListView.builder(
-                itemCount: procedures.length,
-                itemBuilder: (_, index) {
-                  var procedure = procedures[index];
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 4),
-                    child: ProcedureCardWidget(
-                      procedure: procedure,
+    List<DropdownMenuItem<String>> menuItems = [
+      const DropdownMenuItem<String>(
+        value: '',
+        child: Text('Permissionária'),
+      )
+    ];
+    menuItems.addAll(controller.getSuggestions().map((String value) {
+      return DropdownMenuItem<String>(
+        value: value,
+        child: Text(value),
+      );
+    }).toList());
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            FilterTextfieldWidget(
+              width: 300,
+              hintText: 'Código',
+              onChanged: controller.setCodeFilter,
+            ),
+            SizedBox(
+              width: 300,
+              child: DropdownButtonFormField<String>(
+                decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 12),
+                    hintText: controller.permissionariaFilter.isEmpty
+                        ? menuItems.first.value
+                        : controller.permissionariaFilter,
+                    hintStyle: Theme.of(context)
+                        .textTheme
+                        .displaySmall!
+                        .copyWith(
+                            color: controller.permissionariaFilter.isEmpty
+                                ? AppColors.grey
+                                : AppColors.black,
+                            fontWeight: FontWeight.normal),
+                    suffixIconColor: Theme.of(context).colorScheme.primary,
+                    fillColor: AppColors.white,
+                    filled: true,
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                  );
-                }),
-          ),
-        ],
-      ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    )),
+                style: Theme.of(context).textTheme.displaySmall,
+                items: menuItems,
+                onChanged: (value) =>
+                    controller.setPermissionariaFilter(value!),
+              ),
+            ),
+            SizedBox(
+              width: 300,
+              height: 60,
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(color: AppColors.black, width: 1),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        controller.dateFilter.isEmpty
+                            ? 'Data'
+                            : controller.dateFilter,
+                        style: controller.dateFilter.isEmpty
+                            ? Theme.of(context)
+                                .textTheme
+                                .displaySmall!
+                                .copyWith(
+                                    color: AppColors.grey,
+                                    fontWeight: FontWeight.normal)
+                            : Theme.of(context).textTheme.displaySmall,
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          showDatePicker(
+                              context: context,
+                              initialEntryMode:
+                                  DatePickerEntryMode.calendarOnly,
+                              initialDate: DateTime.now(),
+                              firstDate: DateTime(2021),
+                              lastDate: DateTime(2024),
+                              builder: ((context, child) {
+                                return Theme(
+                                  data: Theme.of(context).copyWith(
+                                      textTheme: TextTheme(
+                                          displaySmall:
+                                              AppTextStyles.displaySmall)),
+                                  child: child!,
+                                );
+                              })).then((date) {
+                            if (date == null) return;
+                            var formattedDate =
+                                DateFormat('dd/MM/yyyy').format(date);
+                            controller.setDate(formattedDate);
+                          });
+                        },
+                        icon: const Icon(Icons.calendar_today),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
+        const SizedBox(height: 8),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            FilterTextfieldWidget(
+              width: 1000,
+              hintText: 'Via',
+              onChanged: controller.setViaFilter,
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.black,
+              ),
+              onPressed: () {
+                controller.clearFilters();
+              },
+              child: const Text('Limpar filtros'),
+            ),
+          ],
+        ),
+        const SizedBox(height: 8),
+        ListView.builder(
+            shrinkWrap: true,
+            itemCount: procedures.length,
+            itemBuilder: (_, index) {
+              var procedure = procedures[index];
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4),
+                child: ProcedureCardWidget(
+                  procedure: procedure,
+                ),
+              );
+            }),
+      ],
     );
   }
 }
