@@ -73,6 +73,55 @@ mixin _$HomeController on HomeControllerBase, Store {
     });
   }
 
+  late final _$permissionariaFilterAtom =
+      Atom(name: 'HomeControllerBase.permissionariaFilter', context: context);
+
+  @override
+  String get permissionariaFilter {
+    _$permissionariaFilterAtom.reportRead();
+    return super.permissionariaFilter;
+  }
+
+  @override
+  set permissionariaFilter(String value) {
+    _$permissionariaFilterAtom.reportWrite(value, super.permissionariaFilter,
+        () {
+      super.permissionariaFilter = value;
+    });
+  }
+
+  late final _$dateFilterAtom =
+      Atom(name: 'HomeControllerBase.dateFilter', context: context);
+
+  @override
+  String get dateFilter {
+    _$dateFilterAtom.reportRead();
+    return super.dateFilter;
+  }
+
+  @override
+  set dateFilter(String value) {
+    _$dateFilterAtom.reportWrite(value, super.dateFilter, () {
+      super.dateFilter = value;
+    });
+  }
+
+  late final _$itemCountAtom =
+      Atom(name: 'HomeControllerBase.itemCount', context: context);
+
+  @override
+  int get itemCount {
+    _$itemCountAtom.reportRead();
+    return super.itemCount;
+  }
+
+  @override
+  set itemCount(int value) {
+    _$itemCountAtom.reportWrite(value, super.itemCount, () {
+      super.itemCount = value;
+    });
+  }
+
   late final _$getAllProceduresAsyncAction =
       AsyncAction('HomeControllerBase.getAllProcedures', context: context);
 
@@ -118,6 +167,28 @@ mixin _$HomeController on HomeControllerBase, Store {
   }
 
   @override
+  void setPermissionariaFilter(String value) {
+    final _$actionInfo = _$HomeControllerBaseActionController.startAction(
+        name: 'HomeControllerBase.setPermissionariaFilter');
+    try {
+      return super.setPermissionariaFilter(value);
+    } finally {
+      _$HomeControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setDate(String value) {
+    final _$actionInfo = _$HomeControllerBaseActionController.startAction(
+        name: 'HomeControllerBase.setDate');
+    try {
+      return super.setDate(value);
+    } finally {
+      _$HomeControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void filter() {
     final _$actionInfo = _$HomeControllerBaseActionController.startAction(
         name: 'HomeControllerBase.filter');
@@ -129,12 +200,48 @@ mixin _$HomeController on HomeControllerBase, Store {
   }
 
   @override
+  List<String> getSuggestions() {
+    final _$actionInfo = _$HomeControllerBaseActionController.startAction(
+        name: 'HomeControllerBase.getSuggestions');
+    try {
+      return super.getSuggestions();
+    } finally {
+      _$HomeControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void clearFilters() {
+    final _$actionInfo = _$HomeControllerBaseActionController.startAction(
+        name: 'HomeControllerBase.clearFilters');
+    try {
+      return super.clearFilters();
+    } finally {
+      _$HomeControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void increaseItemCount() {
+    final _$actionInfo = _$HomeControllerBaseActionController.startAction(
+        name: 'HomeControllerBase.increaseItemCount');
+    try {
+      return super.increaseItemCount();
+    } finally {
+      _$HomeControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 allProcedures: ${allProcedures},
 state: ${state},
 codeFilter: ${codeFilter},
-viaFilter: ${viaFilter}
+viaFilter: ${viaFilter},
+permissionariaFilter: ${permissionariaFilter},
+dateFilter: ${dateFilter},
+itemCount: ${itemCount}
     ''';
   }
 }

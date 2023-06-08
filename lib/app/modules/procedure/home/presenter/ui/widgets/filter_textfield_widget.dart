@@ -29,16 +29,15 @@ class FilterTextfieldWidget extends StatelessWidget {
         cursorColor: AppColors.black,
         style: Theme.of(context).textTheme.displaySmall,
         decoration: InputDecoration(
-            contentPadding: const EdgeInsets.symmetric(horizontal: 12),
-            hintText: hintText,
-            suffixIconColor: Theme.of(context).colorScheme.primary,
-            fillColor: AppColors.white,
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-            )),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 12),
+          hintText: hintText,
+          suffixIconColor: Theme.of(context).colorScheme.primary,
+          fillColor: AppColors.white,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(color: AppColors.grey, width: 2),
+          ),
+        ),
       ),
     );
   }

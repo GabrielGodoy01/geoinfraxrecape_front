@@ -89,21 +89,36 @@ abstract class HomeControllerBase with Store {
         return dateFilter == date;
       }).toList();
     }
+    filtered.length > 5 ? itemCount = 5 : itemCount = filtered.length;
 
     state = HomeSuccessState(filtered);
   }
 
+  @action
   List<String> getSuggestions() {
     return allProcedures.map((e) => e.nomePermissionaria).toSet().toList();
   }
 
+  @action
   void clearFilters() {
     codeFilter = '';
     viaFilter = '';
     permissionariaFilter = '';
     dateFilter = '';
     state = HomeSuccessState(allProcedures);
-    print(permissionariaFilter);
+  }
+
+  @observable
+  int itemCount = 5;
+
+  @action
+  void increaseItemCount() {
+    var max = allProcedures.length;
+    if (itemCount + 5 >= max) {
+      itemCount = max;
+      return;
+    }
+    itemCount += 5;
   }
 
   @action

@@ -181,9 +181,23 @@ class HomePage extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 8),
+        Card(
+          elevation: 20,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15.0),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Text(
+              'Total de dados: ${controller.allProcedures.length}',
+              style: Theme.of(context).textTheme.displaySmall!,
+            ),
+          ),
+        ),
+        const SizedBox(height: 8),
         ListView.builder(
             shrinkWrap: true,
-            itemCount: procedures.length,
+            itemCount: controller.itemCount,
             itemBuilder: (_, index) {
               var procedure = procedures[index];
               return Padding(
@@ -193,6 +207,14 @@ class HomePage extends StatelessWidget {
                 ),
               );
             }),
+        IconButton(
+          onPressed: () {
+            controller.increaseItemCount();
+          },
+          icon: Icon(controller.allProcedures.length == controller.itemCount
+              ? Icons.remove_circle
+              : Icons.add_circle),
+        ),
       ],
     );
   }
