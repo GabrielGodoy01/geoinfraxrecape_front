@@ -11,6 +11,7 @@ void main() {
     'nomePermissionaria': 'johndoe@example.com',
     'lat': 'APPROVED',
     'long': 'APPROVED',
+    'via': 'APPROVED',
     'dataTermReal': DateTime.now()
   };
   final listProcedures = [
@@ -20,6 +21,7 @@ void main() {
       'nomePermissionaria': 'johndoe@example.com',
       'lat': 'APPROVED',
       'long': 'APPROVED',
+      'via': 'APPROVED',
       'dataTermReal': DateTime.now()
     }
   ];
