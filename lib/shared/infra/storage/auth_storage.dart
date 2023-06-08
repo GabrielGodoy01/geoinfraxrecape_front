@@ -2,7 +2,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../domain/storage/auth_storage_interface.dart';
 
-class AuthStorage implements IAuthStorage {
+class AuthStorage extends IAuthStorage {
   final Box storage;
 
   AuthStorage._(this.storage);
