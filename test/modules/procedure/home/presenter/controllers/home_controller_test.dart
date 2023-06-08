@@ -40,6 +40,18 @@ void main() {
       via: '',
     ),
     Procedure(
+      protcod: '123',
+      nomePermissionariaCompleto: '123',
+      nomePermissionaria: '123',
+      lat: '',
+      long: '',
+      dataTermReal: DateTime.now(),
+      via: '123',
+    )
+  ];
+
+  var alot = <Procedure>[
+    Procedure(
       protcod: '',
       nomePermissionariaCompleto: '',
       nomePermissionaria: '',
@@ -47,7 +59,52 @@ void main() {
       long: '',
       dataTermReal: DateTime.now(),
       via: '',
-    )
+    ),
+    Procedure(
+      protcod: '',
+      nomePermissionariaCompleto: '',
+      nomePermissionaria: '',
+      lat: '',
+      long: '',
+      dataTermReal: DateTime.now(),
+      via: '',
+    ),
+    Procedure(
+      protcod: '',
+      nomePermissionariaCompleto: '',
+      nomePermissionaria: '',
+      lat: '',
+      long: '',
+      dataTermReal: DateTime.now(),
+      via: '',
+    ),
+    Procedure(
+      protcod: '',
+      nomePermissionariaCompleto: '',
+      nomePermissionaria: '',
+      lat: '',
+      long: '',
+      dataTermReal: DateTime.now(),
+      via: '',
+    ),
+    Procedure(
+      protcod: '',
+      nomePermissionariaCompleto: '',
+      nomePermissionaria: '',
+      lat: '',
+      long: '',
+      dataTermReal: DateTime.now(),
+      via: '',
+    ),
+    Procedure(
+      protcod: '',
+      nomePermissionariaCompleto: '',
+      nomePermissionaria: '',
+      lat: '',
+      long: '',
+      dataTermReal: DateTime.now(),
+      via: '',
+    ),
   ];
 
   setUp(() async {
@@ -70,12 +127,95 @@ void main() {
     });
   });
 
+  test('getSuggestions', () {
+    when(usecase.call()).thenAnswer((_) async => Right(listProcedures));
+    controller = HomeController(usecase);
+    controller.allProcedures = listProcedures;
+    expect(controller.getSuggestions().length, 2);
+  });
+
   group('[TEST] - setter', () {
     test('changeState', () {
       when(usecase.call()).thenAnswer((_) async => Right(listProcedures));
       controller = HomeController(usecase);
       controller.changeState(HomeLoadingState());
       expect(controller.state, isA<HomeLoadingState>());
+    });
+
+    test('increaseItemCount if', () {
+      when(usecase.call()).thenAnswer((_) async => Right(listProcedures));
+      controller = HomeController(usecase);
+      controller.changeState(HomeLoadingState());
+      controller.itemCount = 10;
+      controller.allProcedures = listProcedures;
+      controller.increaseItemCount();
+      expect(controller.itemCount, 3);
+    });
+
+    test('increaseItemCount', () {
+      when(usecase.call()).thenAnswer((_) async => Right(listProcedures));
+      controller = HomeController(usecase);
+      controller.changeState(HomeLoadingState());
+      controller.itemCount = alot.length;
+      controller.allProcedures = alot;
+      controller.increaseItemCount();
+      expect(controller.itemCount, 6);
+    });
+
+    test('decreaseItemCount', () {
+      when(usecase.call()).thenAnswer((_) async => Right(listProcedures));
+      controller = HomeController(usecase);
+      controller.changeState(HomeLoadingState());
+      controller.itemCount = 10;
+      controller.decreaseItemCount();
+      expect(controller.itemCount, 5);
+    });
+
+    test('setCodeFilter', () {
+      when(usecase.call()).thenAnswer((_) async => Right(listProcedures));
+      controller = HomeController(usecase);
+      controller.setCodeFilter('123');
+      expect(controller.codeFilter, '123');
+    });
+
+    test('setViaFilter', () {
+      when(usecase.call()).thenAnswer((_) async => Right(listProcedures));
+      controller = HomeController(usecase);
+      controller.setViaFilter('123');
+      expect(controller.viaFilter, '123');
+    });
+
+    test('setPermissionariaFilter', () {
+      when(usecase.call()).thenAnswer((_) async => Right(listProcedures));
+      controller = HomeController(usecase);
+      controller.setPermissionariaFilter('123');
+      expect(controller.permissionariaFilter, '123');
+    });
+
+    test('filter', () {
+      when(usecase.call()).thenAnswer((_) async => Right(listProcedures));
+      controller = HomeController(usecase);
+      controller.permissionariaFilter = '123';
+      controller.viaFilter = '123';
+      controller.codeFilter = '123';
+      controller.allProcedures = listProcedures;
+      controller.filter();
+      expect((controller.state as HomeSuccessState).procedures.length, 1);
+    });
+
+    test('clearFilters', () {
+      when(usecase.call()).thenAnswer((_) async => Right(listProcedures));
+      controller = HomeController(usecase);
+      controller.permissionariaFilter = '123';
+      controller.viaFilter = '123';
+      controller.codeFilter = '123';
+      controller.allProcedures = listProcedures;
+      controller.clearFilters();
+      expect(controller.viaFilter, '');
+      expect(controller.codeFilter, '');
+      expect(controller.permissionariaFilter, '');
+      expect((controller.state as HomeSuccessState).procedures.length,
+          listProcedures.length);
     });
   });
 }
