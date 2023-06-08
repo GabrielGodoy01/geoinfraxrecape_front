@@ -87,9 +87,11 @@ class HomePage extends StatelessWidget {
                     filled: true,
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide(color: AppColors.grey, width: 2),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide(color: AppColors.grey, width: 2),
                     )),
                 style: controller.permissionariaFilter.isEmpty
                     ? Theme.of(context).textTheme.displaySmall!.copyWith(
@@ -106,7 +108,7 @@ class HomePage extends StatelessWidget {
               height: 60,
               child: Card(
                 shape: RoundedRectangleBorder(
-                  side: BorderSide(color: AppColors.black, width: 1),
+                  side: BorderSide(color: AppColors.grey, width: 2),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Padding(
@@ -207,14 +209,26 @@ class HomePage extends StatelessWidget {
                 ),
               );
             }),
-        IconButton(
-          onPressed: () {
-            controller.increaseItemCount();
-          },
-          icon: Icon(controller.allProcedures.length == controller.itemCount
-              ? Icons.remove_circle
-              : Icons.add_circle),
-        ),
+        ElevatedButton(
+            onPressed: () {
+              controller.allProcedures.length == controller.itemCount
+                  ? controller.decreaseItemCount()
+                  : controller.increaseItemCount();
+            },
+            style: ElevatedButton.styleFrom(
+              padding: EdgeInsets.zero,
+              backgroundColor: AppColors.black,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(50),
+              ),
+            ),
+            child: Icon(
+              controller.allProcedures.length == controller.itemCount
+                  ? Icons.remove_circle
+                  : Icons.add_circle,
+              size: 60,
+            )),
+        const SizedBox(height: 32),
       ],
     );
   }

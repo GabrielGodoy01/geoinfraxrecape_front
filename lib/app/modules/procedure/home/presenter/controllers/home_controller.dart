@@ -122,6 +122,15 @@ abstract class HomeControllerBase with Store {
   }
 
   @action
+  void decreaseItemCount() {
+    if (itemCount - 5 <= 5) {
+      itemCount = 5;
+      return;
+    }
+    itemCount -= 5;
+  }
+
+  @action
   Future<void> getAllProcedures() async {
     state = HomeLoadingState();
     final result = await _getAllProcedures();
