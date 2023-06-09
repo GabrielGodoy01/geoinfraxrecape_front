@@ -233,6 +233,17 @@ mixin _$HomeController on HomeControllerBase, Store {
   }
 
   @override
+  void decreaseItemCount() {
+    final _$actionInfo = _$HomeControllerBaseActionController.startAction(
+        name: 'HomeControllerBase.decreaseItemCount');
+    try {
+      return super.decreaseItemCount();
+    } finally {
+      _$HomeControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 allProcedures: ${allProcedures},
