@@ -1,3 +1,4 @@
+import 'package:clean_flutter_template/app/modules/procedure/more-info/presenter/ui/more_info_page.dart';
 import 'package:clean_flutter_template/shared/datasource/external/http/procedure_datasource.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -20,6 +21,7 @@ class ProcedureModule extends Module {
 
   @override
   List<ModularRoute> get routes => [
-        ChildRoute(Modular.initialRoute, child: (_, __) => const HomePage()),
+        ChildRoute('/home', child: (_, __) => const HomePage()),
+        ChildRoute(Modular.initialRoute, child: (_, __) => MoreInfoPage()),
       ];
 }
