@@ -5,15 +5,15 @@ import '../../../app/modules/procedure/more-info/presenter/directions_model.dart
 import '../../helpers/errors/errors.dart';
 import '../repositories/directions_repository_interface.dart';
 
-abstract class IGetDirectionUseCase {
+abstract class IGetDirectionUsecase {
   Future<Either<Failure, Directions>> call(
       {required LatLng origin, required LatLng destination});
 }
 
-class GetDirectionUsercase extends IGetDirectionUseCase {
+class GetDirectionUsecase extends IGetDirectionUsecase {
   final IDirectionsRepository repository;
 
-  GetDirectionUsercase(this.repository);
+  GetDirectionUsecase(this.repository);
 
   @override
   Future<Either<Failure, Directions>> call(
