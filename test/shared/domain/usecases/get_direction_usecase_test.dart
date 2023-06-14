@@ -1,4 +1,4 @@
-import 'package:clean_flutter_template/app/modules/procedure/more-info/presenter/directions_model.dart';
+import 'package:clean_flutter_template/shared/domain/entities/direction.dart';
 import 'package:clean_flutter_template/shared/domain/repositories/directions_repository_interface.dart';
 import 'package:clean_flutter_template/shared/domain/usecases/get_direction_usecase.dart';
 import 'package:clean_flutter_template/shared/helpers/errors/errors.dart';
@@ -22,9 +22,11 @@ void main() {
   group('[TEST] - getDirections', () {
     var origin = const LatLng(0, 0);
     var destination = const LatLng(0, 0);
-    var directions = Directions(
-      bounds:
-          LatLngBounds(northeast: const LatLng(0, 0), southwest: LatLng(0, 0)),
+    var directions = Direction(
+      bounds: LatLngBounds(
+        northeast: const LatLng(0, 0),
+        southwest: const LatLng(0, 0),
+      ),
       polylinePoints: [],
       totalDistance: '',
       totalDuration: '',
@@ -33,7 +35,7 @@ void main() {
       when(repository.getDirection(origin: origin, destination: destination))
           .thenAnswer((_) async => Right(directions));
       var result = await usecase(origin: origin, destination: destination);
-      expect(result.fold((l) => l, (r) => r), isA<Directions>());
+      expect(result.fold((l) => l, (r) => r), isA<Direction>());
     });
 
     test('should return Failure', () async {

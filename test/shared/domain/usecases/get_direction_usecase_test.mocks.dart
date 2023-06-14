@@ -5,7 +5,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i4;
 
-import 'package:clean_flutter_template/app/modules/procedure/more-info/presenter/directions_model.dart'
+import 'package:clean_flutter_template/shared/domain/entities/direction.dart'
     as _i6;
 import 'package:clean_flutter_template/shared/domain/repositories/directions_repository_interface.dart'
     as _i3;
@@ -46,7 +46,7 @@ class MockIDirectionsRepository extends _i1.Mock
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, _i6.Directions>> getDirection({
+  _i4.Future<_i2.Either<_i5.Failure, _i6.Direction>> getDirection({
     required _i7.LatLng? origin,
     required _i7.LatLng? destination,
   }) =>
@@ -59,8 +59,8 @@ class MockIDirectionsRepository extends _i1.Mock
             #destination: destination,
           },
         ),
-        returnValue: _i4.Future<_i2.Either<_i5.Failure, _i6.Directions>>.value(
-            _FakeEither_0<_i5.Failure, _i6.Directions>(
+        returnValue: _i4.Future<_i2.Either<_i5.Failure, _i6.Direction>>.value(
+            _FakeEither_0<_i5.Failure, _i6.Direction>(
           this,
           Invocation.method(
             #getDirection,
@@ -71,5 +71,5 @@ class MockIDirectionsRepository extends _i1.Mock
             },
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i5.Failure, _i6.Directions>>);
+      ) as _i4.Future<_i2.Either<_i5.Failure, _i6.Direction>>);
 }
